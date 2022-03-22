@@ -22,7 +22,7 @@ int main()
         {
             if (i > 0)
             {
-                std::cout << " Lastname | Firstname |  Nickname |  Number  |  Secret  " << std::endl;
+                std::cout << " Lastname | Firstna. | Nickname |  Number  |  Secret  " << std::endl;
                 std::cout << std::setw(10);
                 std::cout << test->lname << "|";
                 std::cout << std::setw(10);
@@ -33,7 +33,7 @@ int main()
                 std::cout << test->nb << "|" ;
                 std::cout << std::setw(10);
                 std::cout << test->sec << std::endl;
-                
+                std::cout << std::setw(10);
             }
             else
                 std::cout << "No number yet" << std::endl;
@@ -42,27 +42,32 @@ int main()
         {
             std::cout << "Lastname : ";
             std::cin >> lname;
-            std::cout << "Firstname : ";
-            std::cin >> fname;
-            std::cout << "Nickname : ";
-            std::cin >> nname;
-            std::cout << "Number : ";
-            std::cin >> nb;
-            std::cout << "Darkest Secret : ";
-            std::cin >> sec;
+            // std::cout << "Firstname : ";
+            // std::cin >> fname;
+            // std::cout << "Nickname : ";
+            // std::cin >> nname;
+            // std::cout << "Number : ";
+            // std::cin >> nb;
+            // std::cout << "Darkest Secret : ";
+            // std::cin >> sec;
             Contact contact(fname, lname, nname, nb, sec);
             test = &contact;
-                std::cout << " Lastname | Firstname |  Nickname |  Number  |  Secret  " << std::endl;
-                std::cout << std::setw(10);
-                std::cout << test->lname << "|";
-                std::cout << std::setw(10);
-                std::cout << test->fname << "|"; 
-                std::cout << std::setw(10);
-                std::cout << test->nname << "|";
-                std::cout << std::setw(10);
-                std::cout << test->nb << "|" ;
-                std::cout << std::setw(10);
-                std::cout << test->sec << std::endl;
+               std::cout << " Lastname | Firstna. | Nickname |  Number  |  Secret  |" << std::endl;
+                //std::cout << std::setw(10);
+                if (test->lname.size() > 10)
+                    std::cout << test->lname.substr(0, 9)  << ".|";
+                
+                else
+                    std::cout << test->lname << "|";
+                // std::cout << std::setw(10);
+                // std::cout << test->fname << "|"; 
+                // std::cout << std::setw(10);
+                // std::cout << test->nname << "|";
+                // std::cout << std::setw(10);
+                // std::cout << test->nb << "|" ;
+                // std::cout << std::setw(10);
+                // std::cout << test->sec << "|" << std::endl;
+                // std::cout << std::setw(10);
             i++;
         }
         // else

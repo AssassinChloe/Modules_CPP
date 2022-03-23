@@ -32,7 +32,6 @@ int	main(int ac, char **av)
 				j++;
 			}
 			i++;
-			std::cout << " ";
 		}
 		std::cout << std::endl;
 	}

@@ -2,78 +2,73 @@
 
 int main()
 {
-    int i;
-    PhoneBook book;
-    Contact     *test;
-    std::string lname;
-    std::string fname;
-    std::string nname;
-    std::string sec;
-    std::string buff;
-    std::string nb;
+	int			i;
+	int			j;
+    PhoneBook	book;
+	Contact		tmp;
+    std::string	buff;
+	int			index;
 
-    i = 0;
+	i = 0;
+	j = 0;
     while (1)
     {
         std::cin >> buff;
-        if (buff.compare("EXIT") == 0)
+        if (buff == "EXIT")
             return (0);
-        else if (buff.compare("SEARCH") == 0)
+        else if (buff == "SEARCH")
         {
-            if (i > 0)
-            {
-                std::cout << " Lastname | Firstna. | Nickname |  Number  |  Secret  " << std::endl;
-                std::cout << std::setw(10);
-                std::cout << test->lname << "|";
-                std::cout << std::setw(10);
-                std::cout << test->fname << "|"; 
-                std::cout << std::setw(10);
-                std::cout << test->nname << "|";
-                std::cout << std::setw(10);
-                std::cout << test->nb << "|" ;
-                std::cout << std::setw(10);
-                std::cout << test->sec << std::endl;
-                std::cout << std::setw(10);
-            }
-            else
-                std::cout << "No number yet" << std::endl;
+			if (i > 0)
+			{
+				std::cout << "     INDEX|  LASTNAME  | FIRSTNAME|  NICKNAME|" << std::endl;
+				while (j < i)
+				{
+					tmp = book.get_contact(j);
+					book.affiche(j, tmp.get_fname(tmp), tmp.get_lname(tmp), tmp.get_nname(tmp));
+					j++;
+				}
+				std::cout << "Please enter an index" << std::endl;
+				std::cin >> index;
+				if (index < 0 || index >= i)
+				{
+					std::cout << "Please enter a valid index : between 0 and " <<  (i - 1) << std::endl;
+					std::cin >> index;
+
+				}
+			}
+			else
+			{
+				std::cout << "Your Phonebook is empty, please add some contact first" << std::endl;
+			}
         }
-        else if (buff.compare("ADD") == 0)
+        else if (buff == "ADD")
         {
-            std::cout << "Lastname : ";
-            std::cin >> lname;
-            // std::cout << "Firstname : ";
-            // std::cin >> fname;
-            // std::cout << "Nickname : ";
-            // std::cin >> nname;
-            // std::cout << "Number : ";
-            // std::cin >> nb;
-            // std::cout << "Darkest Secret : ";
-            // std::cin >> sec;
-            Contact contact(fname, lname, nname, nb, sec);
-            test = &contact;
-               std::cout << " Lastname | Firstna. | Nickname |  Number  |  Secret  |" << std::endl;
-                //std::cout << std::setw(10);
-                if (test->lname.size() > 10)
-                    std::cout << test->lname.substr(0, 9)  << ".|";
-                
-                else
-                    std::cout << test->lname << "|";
-                // std::cout << std::setw(10);
-                // std::cout << test->fname << "|"; 
-                // std::cout << std::setw(10);
-                // std::cout << test->nname << "|";
-                // std::cout << std::setw(10);
-                // std::cout << test->nb << "|" ;
-                // std::cout << std::setw(10);
-                // std::cout << test->sec << "|" << std::endl;
-                // std::cout << std::setw(10);
-            i++;
+			if (i < 8)
+			{
+				std::cout << "Lastname : ";
+            	std::cin >> buff;
+				tmp.set_lname(buff);
+            	std::cout << "Firstname : ";
+            	std::cin >> buff;
+				tmp.set_fname(buff);
+            	std::cout << "Nickname : ";
+            	std::cin >> buff;
+				tmp.set_nname(buff);
+            	std::cout << "Number : ";
+            	std::cin >> buff;
+				tmp.set_nb(buff);
+            	std::cout << "Darkest Secret : ";
+            	std::cin >> buff;
+				tmp.set_sec(buff);
+				book.set_contact(i, tmp);
+				i++;
+			}
+				
+			
         }
-        // else
-        // {
-        //     std::cout << "Please use ADD, SEARCH or EXIT only" << std::endl;
-        // }
+		else
+        {
+            std::cout << "Please use ADD, SEARCH or EXIT only" << std::endl;
+        }
     }
-    return (0);
 }

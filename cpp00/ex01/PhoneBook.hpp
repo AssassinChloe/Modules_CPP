@@ -1,14 +1,27 @@
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
-class PhoneBook {
+# include <iostream>
+# include <string>
+# include <iomanip>
 
-public:
-    PhoneBook(void);
-    ~PhoneBook(void);
+#include "Contact.hpp"
 
-    char *getcontact();
-    void setcontact();
+class PhoneBook 
+{
+
+	public:
+		
+		PhoneBook(void);
+		~PhoneBook(void);
+		void search(int i, std::string fname, std::string lname, std::string nname) const;
+		void setcontact(Contact contact);
+		Contact get_contact(int i) const;
+		void set_contact(int i, Contact contact);
+	
+	private :
+	
+		Contact list[8];
 };
 
 #endif

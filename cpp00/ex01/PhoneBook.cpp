@@ -1,8 +1,5 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-# include <iostream>
-# include <string>
-# include <iomanip>
 
 PhoneBook::PhoneBook(void)
 {

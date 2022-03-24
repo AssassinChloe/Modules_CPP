@@ -6,51 +6,46 @@
 
 PhoneBook::PhoneBook(void)
 {
-	int i;
-
-	i = 0;
-    std::cout << "PhoneBook open" << std::endl;
-	while (i < 8)
-	{
-		Contact init;
-		list[i] = init;
-		i++;
-	} 
-
-    return ;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-    std::cout << "PhoneBook close" << std::endl;
-    return ;
 }
 
-Contact PhoneBook::get_contact(int i) const
+Contact	PhoneBook::get_contact(int i) const
 {
 	return (this->list[i]);
 }
 
-void PhoneBook::set_contact(int i, Contact contact)
+void	PhoneBook::set_contact(int i, Contact contact)
 {
 	this->list[i] = contact;
 }
 
-void PhoneBook::search(int i, std::string fname, std::string lname, std::string nname) const 
+void	PhoneBook::search(int index, Contact contact) const 
 {
-	std::cout << std::setw(10) << i << "|";
-	if (fname.size() > 10)	
-		std::cout << fname.substr(0, 9) << ".|";
+	std::cout << std::setw(10) << index << "|";
+	if (contact.get_lname(contact).size() > 10)	
+		std::cout << contact.get_lname(contact).substr(0, 9) << ".|";
 	else
-		std::cout << std::setw(10) << fname << "|";
-	if (lname.size() > 10)	
-		std::cout << lname.substr(0, 9) << ".|";
+		std::cout << std::setw(10) << contact.get_lname(contact) << "|";
+	if (contact.get_fname(contact).size() > 10)	
+		std::cout << contact.get_fname(contact).substr(0, 9) << ".|";
 	else
-		std::cout << std::setw(10) << lname << "|";
-	if (nname.size() > 10)	
-		std::cout << nname.substr(0, 9) << ".|" << std::endl;
+		std::cout << std::setw(10) << contact.get_fname(contact) << "|";
+	if (contact.get_nname(contact).size() > 10)	
+		std::cout << contact.get_nname(contact).substr(0, 9) << ".|" << std::endl;
 	else
-		std::cout << std::setw(10) << nname << "|" << std::endl;
+		std::cout << std::setw(10) << contact.get_nname(contact) << "|" << std::endl;
+}
+
+void	PhoneBook::print_contact(Contact contact) const
+{
+	std::cout << "Firstname : " << contact.get_fname(contact) << std::endl;
+	std::cout << "Lastname  : " << contact.get_lname(contact) << std::endl;
+	std::cout << "Nickname  : " << contact.get_nname(contact) << std::endl;
+	std::cout << "Number    : " << contact.get_nb(contact) << std::endl;
+	std::cout << "Secret    : " << contact.get_sec(contact) << std::endl;
 }
 
  

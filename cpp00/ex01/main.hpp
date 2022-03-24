@@ -4,6 +4,7 @@
 # include <iostream>
 # include <string>
 # include <iomanip>
+# include <cstring>
 # include "PhoneBook.hpp"
 # include "Contact.hpp"
 

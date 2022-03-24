@@ -5,6 +5,8 @@
 # include <string>
 # include <iomanip>
 # include <cstring>
+# include <stdlib.h>
+
 # include "PhoneBook.hpp"
 # include "Contact.hpp"
 

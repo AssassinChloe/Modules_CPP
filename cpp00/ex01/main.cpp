@@ -1,5 +1,17 @@
 #include "main.hpp"
 
+void	ft_banner()
+{
+	std::cout << "PPPPP   H    H  OOOOOO  N    N  EEEEEE    BBBBB   OOOOOO  OOOOOO  K    K" << std::endl;
+	std::cout << "P    P  H    H  O    O  NN   N  E         B    B  O    O  O    O  K   K " << std::endl;
+	std::cout << "P    P  H    H  O    O  N N  N  E         B    B  O    O  O    O  K  K  " << std::endl;
+	std::cout << "PPPPP   HHHHHH  O    O  N  N N  EEEEEE    BBBBB   O    O  O    O  K K   " << std::endl;
+	std::cout << "P       H    H  O    O  N  N N  E         B    B  O    O  O    O  K  K  " << std::endl;
+	std::cout << "P       H    H  O    O  N   NN  E         B    B  O    O  O    O  K   K " << std::endl;
+	std::cout << "P       H    H  OOOOOO  N    N  EEEEEE    BBBBB   OOOOOO  OOOOOO  K    K" << std::endl;
+	std::cout << std::endl << "Please use ADD, SEARCH or EXIT" << std::endl;
+}
+
 Contact	get_info()
 {
 	std::string buff;
@@ -56,14 +68,7 @@ int main()
 
 	i = 0;
 	j = 0;
-	std::cout << "PPPPP   H    H  OOOOOO  N    N  EEEEEE    BBBBB   OOOOOO  OOOOOO  K    K" << std::endl;
-	std::cout << "P    P  H    H  O    O  NN   N  E         B    B  O    O  O    O  K   K " << std::endl;
-	std::cout << "P    P  H    H  O    O  N N  N  E         B    B  O    O  O    O  K  K  " << std::endl;
-	std::cout << "PPPPP   HHHHHH  O    O  N  N N  EEEEEE    BBBBB   O    O  O    O  K K   " << std::endl;
-	std::cout << "P       H    H  O    O  N  N N  E         B    B  O    O  O    O  K  K  " << std::endl;
-	std::cout << "P       H    H  O    O  N   NN  E         B    B  O    O  O    O  K   K " << std::endl;
-	std::cout << "P       H    H  OOOOOO  N    N  EEEEEE    BBBBB   OOOOOO  OOOOOO  K    K" << std::endl;
-	std::cout << std::endl << "Please use ADD, SEARCH or EXIT" << std::endl;
+	ft_banner();
     while (1)
     {
         std::cin >> buff;
@@ -93,8 +98,6 @@ int main()
 			}
         }
 		else
-        {
             std::cout << "Please use ADD, SEARCH or EXIT only" << std::endl;
-        }
     }
 }

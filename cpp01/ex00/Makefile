@@ -1,6 +1,6 @@
-NAME	=	phonebook
+NAME	=	zombies
 
-SRC		=	PhoneBook.cpp Contact.cpp main.cpp
+SRC		=	Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 
 OBJSD   =	.obj/
 

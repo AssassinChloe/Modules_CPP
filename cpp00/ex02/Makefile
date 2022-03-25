@@ -8,7 +8,7 @@ OBJS    =	$(addprefix $(OBJSD), $(SRC:%.cpp=%.o))
 
 FLAGCXX	=	-std=c++98 -Wall -Wextra -Werror
 
-CCXX		=	c++
+CCXX	=	c++
 
 all		:	$(NAME)
 

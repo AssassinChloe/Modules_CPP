@@ -1,12 +1,11 @@
 #include "Zombie.hpp"
 
-int main()
+int main(void)
 {
     Zombie *paul;   
     std::cout << std::endl << "Creating a Zombie" << std::endl;
     Zombie mary = Zombie("Mary");
     mary.announce();
-
     std::cout << std::endl << "Creating a newZombie" << std::endl;
     paul = mary.newZombie("Paul");
     mary.announce();

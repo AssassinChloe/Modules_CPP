@@ -59,7 +59,7 @@ void	ft_search(int i, PhoneBook book)
 		book.print_contact(book.get_contact(index - 1));
 }
 
-int main()
+int main(void)
 {
 	int			i;
 	int			j;

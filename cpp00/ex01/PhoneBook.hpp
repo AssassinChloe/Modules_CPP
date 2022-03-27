@@ -23,7 +23,7 @@ class PhoneBook
 
 	private :
 	
-		Contact list[8];
+		Contact _list[8];
 };
 
 #endif

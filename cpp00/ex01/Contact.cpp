@@ -12,46 +12,46 @@ Contact::~Contact(void)
 
 std::string Contact::get_fname(Contact contact) const
 {
-    return (contact.fname);
+    return (contact._fname);
 }
 
 std::string Contact::get_lname(Contact contact) const
 {
-    return (contact.lname);
+    return (contact._lname);
 }
 
 std::string Contact::get_nname(Contact contact) const
 {
-    return (contact.nname);
+    return (contact._nname);
 }
 
 std::string Contact::get_nb(Contact contact) const
 {
-    return (contact.nb);
+    return (contact._nb);
 }
 
 std::string Contact::get_sec(Contact contact) const
 {
-    return (contact.sec);
+    return (contact._sec);
 }
 
 void Contact::set_fname(std::string firstname)
 {
-    this->fname = firstname;
+    this->_fname = firstname;
 }
 void Contact::set_lname(std::string lastname)
 {
-    this->lname = lastname;
+    this->_lname = lastname;
 }
 void Contact::set_nname(std::string nickname)
 {
-    this->nname = nickname;
+    this->_nname = nickname;
 }
 void Contact::set_nb(std::string number)
 {
-    this->nb = number;
+    this->_nb = number;
 }
 void Contact::set_sec(std::string secret)
 {
-    this->sec = secret;
+    this->_sec = secret;
 }

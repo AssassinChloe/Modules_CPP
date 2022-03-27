@@ -11,12 +11,12 @@ PhoneBook::~PhoneBook(void)
 
 Contact	PhoneBook::get_contact(int i) const
 {
-	return (this->list[i]);
+	return (this->_list[i]);
 }
 
 void	PhoneBook::set_contact(int i, Contact contact)
 {
-	this->list[i] = contact;
+	this->_list[i] = contact;
 }
 
 void	PhoneBook::search(int index, Contact contact) const 

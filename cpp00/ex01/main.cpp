@@ -90,7 +90,6 @@ int main(void)
 			}
 			else if (i == 8)
 			{
-
 				book.set_contact(j, get_info());
 				j++;
 				if (j == 8)

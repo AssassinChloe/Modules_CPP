@@ -25,11 +25,11 @@ class Contact
     
     private :
 
-    std::string fname;
-    std::string lname;
-    std::string nname;
-    std::string nb;
-    std::string sec;
+    std::string _fname;
+    std::string _lname;
+    std::string _nname;
+    std::string _nb;
+    std::string _sec;
 };
 
 #endif

@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   class.hpp                                          :+:      :+:    :+:   */
+/*   {{CLASS}}.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 00:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:32 by cassassi         ###   ########.fr       */
+/*   Created: 2022/03/28 00:18:11 by cassassi          #+#    #+#             */
+/*   Updated: 2022/03/28 00:18:19 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef {{MACRO_GUARD}}
-#define {{MACRO_GUARD}}
+#include "{{CLASS}}.hpp"
 
-# include <iostream>
-class {{CLASS}}
+{{CLASS}}::{{CLASS}}()
+{}
+
+{{CLASS}}::{{CLASS}}()
+{}
+
+{{CLASS}}& {{CLASS}}::operator=({{CLASS}} const & rhs)
 {
-    public:
-        {{CLASS}}();
-        {{CLASS}}();
-        virtual ~{{CLASS}}();
+    /*modifier les variables*/
+    return *this;
+}
 
-        {{CLASS}}& operator=({{CLASS}} const & rhs);
-    private:
-        
-};
-
-std::ofstream & operator<<(std::ofstream & o, {{CLASS}} const & i);
-
-#endif
+{{CLASS}}::~{{CLASS}}()
+{}

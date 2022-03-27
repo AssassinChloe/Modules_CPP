@@ -8,17 +8,21 @@ class SedLike
 {
     public :
 
-        SedLike(std::string ifname, std::string ofname, std::string tofind, std::string toput);
+        SedLike(std::ifstream* ifs, std::ofstream* ofs, std::string tofind);
         ~SedLike();
 
-        int replace();
+        void    set_tofind(std::string tofind);
+        void    set_toput(std::string toput);
+        void     replace();
 
     private : 
 
-    std::string     _ifname;
-    std::string     _ofname;
-    std::string     _tofind;
-    std::string     _toput;
+    std::string         _tofind;
+    std::string         _toput;
+    std::ifstream*       _ifs;
+    std::ofstream*       _ofs;
+
+    void    find_and_replace(std::string& buff);
 };
 
 #endif

@@ -1,54 +1,51 @@
 #include "SedLike.hpp"
 #include <iostream>
 
-SedLike::SedLike(std::string ifname, std::string ofname, std::string tofind, std::string toput) :
-_ifname(ifname), _ofname(ofname), _tofind(tofind), _toput(toput)
+SedLike::SedLike(std::ifstream* ifs, std::ofstream* ofs, std::string tofind) : _ifs(ifs), _ofs(ofs), _tofind(tofind), _toput("")
 {}
 
 SedLike::~SedLike()
 {}
 
-int SedLike::replace()
+void     SedLike::set_tofind(std::string tofind)
 {
-    std::ifstream   ifs(this->_ifname);
-    std::string     buff;
+    this->_tofind = tofind;
+}
+
+void     SedLike::set_toput(std::string toput)
+{
+    this->_toput = toput;
+}
+
+void    SedLike::find_and_replace(std::string& buff)
+{
     size_t          pos;
-    if (!ifs)
-        return (1);
-    std::ofstream   ofs(this->_ofname);
-    std::getline(ifs, buff);
-    if (ifs.eof() && buff == "")
+
+    pos = buff.find(this->_tofind);
+    while (pos >= 0 && pos < buff.size())
     {
-        ifs.close();
-        ofs.close();
-        return(0);
+        buff.erase(pos, this->_tofind.size());
+        buff.insert(pos, this->_toput);
+        pos = buff.find(this->_tofind);
     }
-    while (!ifs.eof())
+    *this->_ofs << buff;
+}
+
+void    SedLike::replace()
+{
+    std::string     buff;
+    
+    std::getline(*this->_ifs, buff);
+    if ((*this->_ifs).eof() && buff == "")
+        return ;
+    while (!(*this->_ifs).eof())
     {   
-        pos = buff.find(this->_tofind);
-        while (pos >= 0 && pos < buff.size())
-        {
-            buff.erase(pos, this->_tofind.size());
-            buff.insert(pos, this->_toput);
-            pos = buff.find(this->_tofind);
-        }
-        ofs << buff;
-        std::getline(ifs, buff);
-        if (!ifs.eof())
-            ofs << std::endl;
+        SedLike::find_and_replace(buff);
+        if (!(*this->_ifs).eof())
+            *this->_ofs << std::endl;
+        std::getline(*this->_ifs, buff);
+
     }
-    if (buff == "")
-        ofs << std::endl;
-    else
-    {
-        pos = buff.find(this->_tofind);
-        while (pos >= 0 && pos <= buff.size())
-        {
-            buff.erase(pos, this->_tofind.size());
-            buff.insert(pos, this->_toput);
-            pos = buff.find(this->_tofind);
-        }
-        ofs << buff;
-    }
-    return (0);
+    SedLike::find_and_replace(buff);
+    return ;
 }

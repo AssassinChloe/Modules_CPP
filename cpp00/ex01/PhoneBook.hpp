@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <iomanip>
+# include <cstdlib>
 
 #include "Contact.hpp"
 
@@ -28,13 +29,15 @@ class PhoneBook
 		~PhoneBook(void);
 
 		void	search(int index, Contact contact) const;
-		void	print_contact(Contact contact) const;
+
 		Contact	get_contact(int i) const;
-		
-		void	set_contact(int i, Contact contact);
+		void	search(int i)  const;
+		void	set_contact(int i);
 
 	private :
-	
+	 	Contact	get_info() const;
+		void	print_tab(int i) const;
+		void	print_contact(Contact contact) const;
 		Contact _list[8];
 };
 

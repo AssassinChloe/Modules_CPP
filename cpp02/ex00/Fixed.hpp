@@ -20,10 +20,14 @@ class Fixed
         Fixed();
         Fixed(Fixed const& src);
         ~Fixed();
-
         Fixed & operator=(Fixed const & rhs);
+
+        int getRawBits( void ) const;
+        void setRawBits( int const raw );
+
     private:
-        
+        int _raw_bits;
+        // const static int _div;
 };
 
 std::ofstream & operator<<(std::ofstream & o, Fixed const & i);

@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	
+NAME	=	fixed
 
-SRC		=	main.cpp 
+SRC		=	main.cpp Fixed.cpp
 
 OBJSD   =	.obj/
 

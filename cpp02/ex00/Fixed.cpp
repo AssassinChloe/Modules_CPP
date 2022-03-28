@@ -12,8 +12,6 @@
 
 #include "Fixed.hpp"
 
-// const int _div = 8;
-
 Fixed::Fixed() : _raw_bits(0)
 {
     std::cout << "Default constructor called" << std::endl;
@@ -29,6 +27,7 @@ Fixed::Fixed(Fixed const& src)
 Fixed& Fixed::operator=(Fixed const & rhs)
 {
     std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &rhs)
         this->_raw_bits = rhs.getRawBits();
     return *this;
 }

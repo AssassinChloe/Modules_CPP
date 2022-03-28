@@ -18,7 +18,7 @@ class {{CLASS}}
 {
     public:
         {{CLASS}}();
-        {{CLASS}}();
+        {{CLASS}}({{CLASS}} const & src);
         virtual ~{{CLASS}}();
 
         {{CLASS}}& operator=({{CLASS}} const & rhs);

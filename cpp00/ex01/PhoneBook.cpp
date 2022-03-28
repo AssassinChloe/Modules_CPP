@@ -34,14 +34,14 @@ void	PhoneBook::set_contact(int i, Contact contact)
 void	PhoneBook::search(int index, Contact contact) const 
 {
 	std::cout << std::setw(10) << index << "|";
-	if (contact.get_lname(contact).size() > 10)	
-		std::cout << contact.get_lname(contact).substr(0, 9) << ".|";
-	else
-		std::cout << std::setw(10) << contact.get_lname(contact) << "|";
 	if (contact.get_fname(contact).size() > 10)	
 		std::cout << contact.get_fname(contact).substr(0, 9) << ".|";
 	else
 		std::cout << std::setw(10) << contact.get_fname(contact) << "|";
+	if (contact.get_lname(contact).size() > 10)	
+		std::cout << contact.get_lname(contact).substr(0, 9) << ".|";
+	else
+		std::cout << std::setw(10) << contact.get_lname(contact) << "|";
 	if (contact.get_nname(contact).size() > 10)	
 		std::cout << contact.get_nname(contact).substr(0, 9) << ".|" << std::endl;
 	else

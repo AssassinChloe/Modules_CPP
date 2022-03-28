@@ -26,25 +26,51 @@ void	ft_banner()
 
 Contact	get_info()
 {
+	int i;
 	std::string buff;
 	Contact		tmp;
-	
+	std::string tab[5] = 
+	{
+		"Firstname : ",
+		"Lastname : ",
+		"Nickname : ",
+		"Number : ",
+		"Darkest Secret : "
+	};
+
+	i = 0;
 	std::getline(std::cin, buff);
-	std::cout << "Lastname : ";
-    std::getline(std::cin, buff);
-	tmp.set_lname(buff);
-    std::cout << "Firstname : ";
-	std::getline(std::cin, buff);
-	tmp.set_fname(buff);
-	std::cout << "Nickname : ";
-	std::getline(std::cin, buff);
-	tmp.set_nname(buff);
-    std::cout << "Number : ";
-	std::getline(std::cin, buff);
-	tmp.set_nb(buff);
-    std::cout << "Darkest Secret : ";
-    std::getline(std::cin, buff);
-	tmp.set_sec(buff);
+		while (i < 5)
+	{
+		std::cout << tab[i];
+		std::getline(std::cin, buff);
+		if (buff.size() == 0)
+			std::cout << "The field can't be empty" << std::endl;
+		else
+		{
+			switch (i)
+			{
+				case 0:
+					tmp.set_fname(buff);
+					break;
+				case 1:
+					tmp.set_lname(buff);
+					break;
+				case 2:
+					tmp.set_nname(buff);
+					break;
+				case 3:
+					tmp.set_nb(buff);
+					break;
+				case 4:
+					tmp.set_sec(buff);
+					break;
+				default :
+					break;
+			}
+			i++;
+		}
+	}
 	return (tmp);
 }
 

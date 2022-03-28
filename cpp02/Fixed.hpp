@@ -18,8 +18,8 @@ class Fixed
 {
     public:
         Fixed();
-        Fixed();
-        virtual ~Fixed();
+        Fixed(Fixed const& src);
+        ~Fixed();
 
         Fixed & operator=(Fixed const & rhs);
     private:

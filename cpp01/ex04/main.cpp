@@ -21,7 +21,7 @@ int ft_error(std::string str)
 int ft_check_arg(int ac, char** av)
 {
     if (ac != 4)
-        return(ft_error("Wrong number of arguments"));
+        return(ft_error("Wrong number of arguments : ./sedLike file name S1 S2"));
     if ((std::string)av[1] == "")
         return (ft_error("No infile name"));
     std::string tofind(av[2]);
@@ -37,7 +37,8 @@ int main(int ac, char**av)
     std::ifstream       ifs(av[1]);
     if (!ifs)
         return(ft_error("Error open infile"));
-    std::ofstream       ofs((std::string)av[1] + ".replace");
+    std::string ofsname = (std::string)av[1] + ".replace";
+    std::ofstream       ofs(ofsname.c_str());
     if (!ofs)
     {
         ifs.close();

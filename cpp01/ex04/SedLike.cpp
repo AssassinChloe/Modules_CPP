@@ -13,7 +13,8 @@
 #include "SedLike.hpp"
 #include <iostream>
 
-SedLike::SedLike(std::ifstream* ifs, std::ofstream* ofs, std::string tofind) : _ifs(ifs), _ofs(ofs), _tofind(tofind), _toput("")
+SedLike::SedLike(std::ifstream* ifs, std::ofstream* ofs, std::string tofind) : 
+_tofind(tofind), _toput(""), _ifs(ifs), _ofs(ofs)
 {}
 
 SedLike::~SedLike()
@@ -38,7 +39,8 @@ void    SedLike::find_and_replace(std::string& buff)
     {
         buff.erase(pos, this->_tofind.size());
         buff.insert(pos, this->_toput);
-        pos = buff.find(this->_tofind);
+        pos += this->_toput.size();
+        pos = buff.find(this->_tofind, pos);
     }
     *this->_ofs << buff;
 }

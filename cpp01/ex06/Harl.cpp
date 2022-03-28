@@ -48,7 +48,7 @@ void Harl::set_filter(std::string lvl_min)
 void Harl::complain(std::string level)
 {
     this->_level = Harl::set_level(level);
-    if (this->_level >= this->_lvl_min)
+    if (this->_level >= this->_lvl_min && _lvl_min >= 0)
     {
         switch(this->_level)
         {

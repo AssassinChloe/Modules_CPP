@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	other_sed
+NAME	=	sedLike
 
-SRC		=	main.cpp 
+SRC		=	main.cpp SedLike.cpp
 
 OBJSD   =	.obj/
 

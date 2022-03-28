@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <cstdlib>
 
 int main(int ac, char **av)
 {
-    Zombie *horde;
-    std::string name;
+    Zombie *horde = NULL;
     int     N;
     int     i;
     
@@ -32,8 +32,7 @@ int main(int ac, char **av)
         std::cout << "Please enter a number > 0" << std::endl;
         return (1);
     }
-    name = av[2];
-    horde = (*horde).zombieHorde(N, name);
+    horde = (*horde).zombieHorde(N, (std::string)av[2]);
     while (i++ < N)
         (*horde).announce();
     delete [] horde;

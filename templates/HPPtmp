@@ -21,7 +21,7 @@ class {{CLASS}}
         {{CLASS}}({{CLASS}} const & src);
         virtual ~{{CLASS}}();
 
-        {{CLASS}}& operator=({{CLASS}} const & rhs);
+        {{CLASS}}& operator=({{CLASS}} const & var);
     private:
         
 };

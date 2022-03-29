@@ -18,7 +18,7 @@
 {{CLASS}}::{{CLASS}}({{CLASS}} const & src)
 {}
 
-{{CLASS}}& {{CLASS}}::operator=({{CLASS}} const & rhs)
+{{CLASS}}& {{CLASS}}::operator=({{CLASS}} const & var)
 {
     /*modifier les variables*/
     return *this;

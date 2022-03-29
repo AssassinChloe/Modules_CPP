@@ -24,6 +24,20 @@ Fixed::Fixed(Fixed const& src)
     return ;
 }
 
+Fixed::Fixed(int const nb) : _raw_bits(nb << this->_bits)
+{}
+
+Fixed::Fixed(float const nbf)
+{
+    this->_raw_bits = roundf(nbf * (1 << this->_bits));
+}
+
+std::ostream & operator<<(std::ostream & ostream, Fixed const & instance)
+{
+    ostream << instance.toFloat();
+    return (ostream);
+}
+
 Fixed& Fixed::operator=(Fixed const & var)
 {
     std::cout << "Copy assignment operator called" << std::endl;
@@ -47,4 +61,15 @@ int Fixed::getRawBits( void ) const
 void Fixed::setRawBits( int const raw )
 {
     this->_raw_bits = raw;
+}
+
+float   Fixed::toFloat( void ) const
+{
+    float tmp = (float)this->_raw_bits / (1 << this->_bits) ;
+    return (tmp);
+}
+
+int Fixed::toInt( void ) const
+{
+    return (this->_raw_bits >> this->_bits);
 }

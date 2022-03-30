@@ -16,13 +16,27 @@
 {}
 
 {{CLASS}}::{{CLASS}}({{CLASS}} const & src)
-{}
+{
+    // std::cout << "Copy constructor called" << std::endl;
+    *this = src;
+    return ;
+}
 
 {{CLASS}}& {{CLASS}}::operator=({{CLASS}} const & var)
 {
-    /*modifier les variables*/
+    if (this != &var)
+    {
+        /*modifier les variables*/
+        this-> ;
+    }
     return *this;
 }
 
 {{CLASS}}::~{{CLASS}}()
 {}
+
+std::ostream & operator<<(std::ostream & ostream, {{CLASS}} const & instance)
+{
+    ostream << ;
+    return (ostream);
+}

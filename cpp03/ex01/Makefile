@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	
+NAME	=	scav_fight
 
-SRC		=	main.cpp {{CLASS}}.cpp
+SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJSD   =	.obj/
 

@@ -1,0 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/28 00:18:29 by cassassi          #+#    #+#             */
+/*   Updated: 2022/03/28 00:18:32 by cassassi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CLAPTRAP_H
+#define CLAPTRAP_H
+
+# include <iostream>
+class ClapTrap
+{
+    public:
+    
+        ClapTrap(const std::string name);
+        ClapTrap(ClapTrap const & src);
+        ~ClapTrap();
+
+        ClapTrap& operator=(ClapTrap const & var);
+
+        std::string getname() const;
+        int         gethitpoint() const;
+        int         getenergy() const;
+        int         getdamage() const;
+
+        void        attack(const std::string& target);
+        void        takeDamage(unsigned int amount);
+        void        beRepaired(unsigned int amount);
+
+    private:
+
+        ClapTrap();
+        std::string _name;
+        int         _hit_points;
+        int         _energy;
+        int         _damage;
+        
+};
+
+std::ostream & operator<<(std::ostream & ostream, ClapTrap const & i);
+
+#endif

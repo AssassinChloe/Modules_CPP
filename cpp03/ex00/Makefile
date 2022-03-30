@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	
+NAME	=	clap_fight
 
-SRC		=	main.cpp {{CLASS}}.cpp
+SRC		=	main.cpp ClapTrap.cpp
 
 OBJSD   =	.obj/
 

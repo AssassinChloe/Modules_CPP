@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   {{CLASS}}.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef {{MACRO}}
-#define {{MACRO}}
+#ifndef SCAVTRAP_H
+#define SCAVTRAP_H
 
 # include <iostream>
-class {{CLASS}}
+# include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
     public:
-        {{CLASS}}();
-        {{CLASS}}({{CLASS}} const & src);
-        virtual ~{{CLASS}}();
+        ScavTrap(std::string name);
+        ScavTrap(ScavTrap const & src);
+        virtual ~ScavTrap();
 
-        {{CLASS}}& operator=({{CLASS}} const & var);
-    private:
+        ScavTrap& operator=(ScavTrap const & var);
+
+        bool get_status() const;
+        void guardGate();
         
-};
+    private:
+        ScavTrap();
+        bool    _gate_keeping_active;        
 
-std::ofstream & operator<<(std::ofstream & o, {{CLASS}} const & i);
+};
 
 #endif

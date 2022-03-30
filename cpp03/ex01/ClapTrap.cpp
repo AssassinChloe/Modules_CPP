@@ -13,7 +13,9 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-{}
+{
+    std::cout << "... ... Initialization of a robot in progress... ..." << std::endl;
+}
 
 ClapTrap::ClapTrap(const std::string name) :
  _name(name), _hit_points(10), _energy(10), _damage(0), _max_hit_point(10), _max_energy(10)
@@ -43,7 +45,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap const & var)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap " << _name << " : Termination complete" << std::endl;
+    std::cout << _name << " : Termination complete" << std::endl;
 }
 
 std::ostream & operator<<(std::ostream & ostream, ClapTrap const & i)
@@ -91,7 +93,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    std::cout << "ClapTrap " << this->_name << " has been hit *shrieking noise* and lost ";
+    std::cout << this->_name << " has been hit *shrieking noise* and lost ";
     std::cout << amount << " health points !" << std::endl;
     this->_hit_points -= amount;
     if (this->_hit_points < 0)
@@ -100,7 +102,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    std::cout << "*Buzzing and drilling noises* ClapTrap " << this->_name << " regains ";
+    std::cout << "*Buzzing and drilling noises*" << this->_name << " regains ";
     std::cout << amount << " health points !" << std::endl;
     this->_energy--;
     this->_hit_points += amount;

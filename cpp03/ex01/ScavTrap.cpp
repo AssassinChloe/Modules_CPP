@@ -23,6 +23,7 @@ ScavTrap::ScavTrap(std::string name) : _gate_keeping_active(false)
     this->_damage = 20;
     this->_max_hit_point = 100;
     this->_max_energy = 50;
+    std::cout << "ScavTrap " << name << " : Initialization Complete! " << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const & src)
@@ -53,7 +54,9 @@ std::ostream & operator<<(std::ostream & ostream, ScavTrap const & i)
 }
 
 ScavTrap::~ScavTrap()
-{}
+{
+    std::cout << _name << " : Termination in Progress..." << std::endl;
+}
 
 bool ScavTrap::get_status() const
 {
@@ -64,4 +67,11 @@ void ScavTrap::guardGate()
 {
     std::cout << "ScavTrap " << this->_name << ": Gate Keeper Mode ACTIVATED !" << std::endl;
     this->_gate_keeping_active = true;
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+    std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing ";
+    std::cout << this->_damage << " points of damage !!!!" << std::endl;
+    this->_energy--;
 }

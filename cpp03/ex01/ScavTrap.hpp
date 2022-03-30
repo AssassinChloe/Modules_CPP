@@ -27,6 +27,8 @@ class ScavTrap : public ClapTrap
 
         bool get_status() const;
         void guardGate();
+        void attack(const std::string& target);
+
         
     private:
         ScavTrap();

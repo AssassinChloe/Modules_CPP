@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-#define SCAVTRAP_H
+#ifndef FRAGTRAP_H
+#define FRAGTRAP_H
 
+#include "ClapTrap.hpp"
 # include <iostream>
-# include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
     public:
-        ScavTrap(std::string name);
-        ScavTrap(ScavTrap const & src);
-        virtual ~ScavTrap();
+        FragTrap(std::string name);
+        FragTrap(FragTrap const & src);
+        ~FragTrap();
+        FragTrap& operator=(FragTrap const & var);
 
-        ScavTrap& operator=(ScavTrap const & var);
-
-        bool get_status() const;
-        void guardGate();
+        void highFivesGuys(void);
         void attack(const std::string& target);
 
-        
     private:
-        ScavTrap();
-        bool    _gate_keeping_active;        
-
+        FragTrap();
+        
 };
-
-std::ostream & operator<<(std::ostream & ostream, ScavTrap const & i);
 
 #endif

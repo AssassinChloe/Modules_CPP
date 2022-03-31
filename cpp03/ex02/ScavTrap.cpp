@@ -80,7 +80,6 @@ void ScavTrap::guardGate()
     this->_energy--;
 }
 
-
 void ScavTrap::attack(const std::string& target)
 {
     std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing ";

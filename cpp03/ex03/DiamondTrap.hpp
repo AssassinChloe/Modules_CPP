@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                          :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-#define SCAVTRAP_H
+#ifndef DIAMONDTRAP_H
+#define DIAMONDTRAP_H
 
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 # include <iostream>
-# include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class DiamondTrap : public ScavTrap public FragTrap
 {
     public:
-        ScavTrap(std::string name);
-        ScavTrap(ScavTrap const & src);
-        virtual ~ScavTrap();
+        DiamondTrap(DiamondTrap const & src);
+        virtual ~DiamondTrap();
 
-        ScavTrap& operator=(ScavTrap const & var);
-
-        bool get_status() const;
-        void guardGate();
-        void attack(const std::string& target);
-
-        
+        DiamondTrap& operator=(DiamondTrap const & var);
+    
     private:
-        ScavTrap();
-        bool    _gate_keeping_active;        
-
+        DiamondTrap();
+        std::string _name;
+        
 };
 
-std::ostream & operator<<(std::ostream & ostream, ScavTrap const & i);
+std::ostream & operator<<(std::ostream & ostream, DiamondTrap const & instance);
 
 #endif

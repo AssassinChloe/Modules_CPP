@@ -13,7 +13,14 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-{}
+{
+    this->_hit_points = 100;
+    this->_energy = 50;
+    this->_damage = 20;
+    this->_max_hit_point = 100;
+    this->_max_energy = 50;
+    std::cout << "ScavTrap parts : Initialization in progress..." << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name) : _gate_keeping_active(false)
 {
@@ -57,7 +64,7 @@ std::ostream & operator<<(std::ostream & ostream, ScavTrap const & i)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap " << this->_name << " : Termination in Progress..." << std::endl;
+    std::cout << "ScavTrap parts : Termination in Progress..." << std::endl;
 }
 
 bool ScavTrap::get_status() const

@@ -16,12 +16,12 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
     public:
         ScavTrap(std::string name);
         ScavTrap(ScavTrap const & src);
-        virtual ~ScavTrap();
+        ~ScavTrap();
 
         ScavTrap& operator=(ScavTrap const & var);
 
@@ -29,9 +29,10 @@ class ScavTrap : public ClapTrap
         void guardGate();
         void attack(const std::string& target);
 
+    protected:
+        ScavTrap();
         
     private:
-        ScavTrap();
         bool    _gate_keeping_active;        
 
 };

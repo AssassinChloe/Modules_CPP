@@ -17,20 +17,22 @@
 # include "FragTrap.hpp"
 # include <iostream>
 
-class DiamondTrap : public ScavTrap public FragTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
     public:
+        DiamondTrap(std::string name);
         DiamondTrap(DiamondTrap const & src);
-        virtual ~DiamondTrap();
+        ~DiamondTrap();
 
         DiamondTrap& operator=(DiamondTrap const & var);
-    
+        std::string getname() const;
+        void attack(const std::string& target);
+        void whoAmI();
+        
     private:
         DiamondTrap();
         std::string _name;
         
 };
-
-std::ostream & operator<<(std::ostream & ostream, DiamondTrap const & instance);
 
 #endif

@@ -1,12 +1,15 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
     ClapTrap robot1("Oscar");
     ScavTrap robot2("Jarvis");
     FragTrap robot3("Wall-E");
+    DiamondTrap robot4("C3PO");
+
     int i(0);
     std::string tab[] = 
     {
@@ -19,10 +22,11 @@ int main()
     };
     std::cout << std::endl << robot1 << std::endl;
     std::cout << std::endl << robot2 << std::endl;
-    std::cout << std::endl << robot3 << std::endl << std::endl;
+    std::cout << std::endl << robot3 << std::endl;
+    std::cout << std::endl << robot4 << std::endl << std::endl;
 
     robot2.guardGate();
-    
+    robot4.whoAmI();
     while (robot1.gethitpoint() > 0 && robot2.gethitpoint() > 0)
     {
         std::cout << std::endl << robot2.getname() << " : " << tab[i] << std::endl;
@@ -44,13 +48,16 @@ int main()
             robot1.beRepaired(7);
         std::cout << std::endl << robot1 << std::endl;
         std::cout << std::endl << robot2 << std::endl;
-        std::cout << std::endl << robot3 << std::endl << std::endl;
+        std::cout << std::endl << robot3 << std::endl;
+        std::cout << std::endl << robot4 << std::endl << std::endl;
         i++;
     }
     std::cout << "SPROCH" << std::endl << std::endl;
     robot2.guardGate();
     robot3.highFivesGuys();
     robot3.attack(robot2.getname());
-    std::cout << "*" << robot3.getname() << "run away throught the ungarded gates! * " << std::endl << std::endl;
+    robot4.attack(robot2.getname());
+    std::cout << "*" << robot3.getname() << " and " << robot4.getname() << " run away throught the ungarded gates! * " << std::endl << std::endl;
+    robot4.whoAmI();
     return (0);
 }

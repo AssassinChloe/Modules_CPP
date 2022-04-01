@@ -45,7 +45,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap const & var)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap parts of " << this->_name << " : Termination complete" << std::endl;
+    std::cout << "ClapTrap parts : Termination complete" << std::endl;
 }
 
 std::ostream & operator<<(std::ostream & ostream, ClapTrap const & i)

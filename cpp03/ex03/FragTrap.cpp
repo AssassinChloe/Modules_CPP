@@ -13,7 +13,14 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap()
-{}
+{
+    this->_hit_points = 100;
+    this->_energy = 100;
+    this->_damage = 30;
+    this->_max_hit_point = 100;
+    this->_max_energy = 100;
+    std::cout << "FragTrap parts : Initialization in progress..." << std::endl;
+}
 
 FragTrap::FragTrap(std::string name)
 {
@@ -46,7 +53,7 @@ FragTrap& FragTrap::operator=(FragTrap const & var)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap " << this->_name << " : Termination in Progress..." << std::endl;
+    std::cout << "FragTrap parts : Termination in Progress..." << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)

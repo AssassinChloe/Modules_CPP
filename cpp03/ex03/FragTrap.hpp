@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 # include <iostream>
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
     public:
         FragTrap(std::string name);
@@ -27,8 +27,11 @@ class FragTrap : public ClapTrap
         void highFivesGuys(void);
         void attack(const std::string& target);
 
-    private:
+    protected:
         FragTrap();
+
+    private:
+        
         
 };
 

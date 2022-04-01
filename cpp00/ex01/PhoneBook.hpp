@@ -28,13 +28,11 @@ class PhoneBook
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		void	search(int index, Contact contact) const;
-
-		Contact	get_contact(int i) const;
 		void	search(int i)  const;
 		void	set_contact(int i);
 
 	private :
+	
 	 	Contact	get_info() const;
 		void	print_tab(int i) const;
 		void	print_contact(Contact contact) const;

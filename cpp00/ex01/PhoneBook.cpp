@@ -21,11 +21,6 @@ PhoneBook::~PhoneBook(void)
 {
 }
 
-Contact	PhoneBook::get_contact(int i) const
-{
-	return (this->_list[i]);
-}
-
 void	PhoneBook::set_contact(int i)
 {
 	this->_list[i] = get_info();

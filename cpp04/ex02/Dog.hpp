@@ -14,10 +14,10 @@
 #define DOG_H
 
 # include <iostream>
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Dog : public Animal
+class Dog : public AAnimal
 {
     public:
         Dog();
@@ -26,12 +26,13 @@ class Dog : public Animal
         Dog& operator=(Dog const & var);
 
         virtual void makeSound() const;
-        Brain *getBrain() const;   
         void fillBrain(std::string idea, int i);
         std::string getTought(int index);
 
     private:
-        Brain *_brain;     
+        Brain *_brain;
+        Brain *getBrain() const;   
+
 };
 
 #endif

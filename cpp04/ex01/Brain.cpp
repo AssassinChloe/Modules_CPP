@@ -25,9 +25,14 @@ Brain::Brain(Brain const & src)
 
 Brain& Brain::operator=(Brain const & var)
 {
+    int i;
+
     if (this != &var)
     {
-    
+        for (i = 0; i < 100; i++)
+        {
+            this->_ideas[i] = var._ideas[i];
+        }
     }
     return *this;
 }
@@ -35,4 +40,17 @@ Brain& Brain::operator=(Brain const & var)
 Brain::~Brain()
 {
     std::cout << "Destructor Brain" << std::endl;
+}
+
+void Brain::setIdeas(std::string idea, int index)
+{
+    if (index >= 0 && index <= 99)
+        this->_ideas[index] = idea;   
+}
+
+std::string Brain::getIdeas(int index)
+{
+    if (index >= 0 && index <= 99)
+        return(this->_ideas[index]);
+    return (NULL);
 }

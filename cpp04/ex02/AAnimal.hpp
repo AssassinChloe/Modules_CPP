@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,28 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-#define DOG_H
+#ifndef AAnimal_H
+#define AAnimal_H
 
 # include <iostream>
-# include "Animal.hpp"
-# include "Brain.hpp"
 
-class Dog : public Animal
+class AAnimal
 {
     public:
-        Dog();
-        Dog(Dog const & src);
-        virtual ~Dog();
-        Dog& operator=(Dog const & var);
+        AAnimal();
+        AAnimal(AAnimal const & src);
+        virtual ~AAnimal();
+        AAnimal& operator=(AAnimal const & var);
+        virtual void makeSound() const = 0;
 
-        virtual void makeSound() const;
-        Brain *getBrain() const;   
-        void fillBrain(std::string idea, int i);
-        std::string getTought(int index);
-
-    private:
-        Brain *_brain;     
+    protected:
+        std::string _type;
+        std::string getType() const;
 };
 
 #endif

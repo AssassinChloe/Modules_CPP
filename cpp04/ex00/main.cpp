@@ -2,27 +2,34 @@
 
 int main()
 {
-    std::cout << "with virtual fonction makeSound()" << std::endl;
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
-    delete(i);
-    delete(j);
-    delete(meta);
+    std::cout << std::endl << "Testing with virtual fonction makeSound()" << std::endl << std::endl;
+    const Animal* animal = new Animal();
+    const Animal* dog = new Dog();
+    const Animal* cat = new Cat();
 
-    std::cout << "without virtual fonction makeSound()" << std::endl;
+    std::cout << dog->getType() << " says :" << std::endl;
+    dog->makeSound();
 
-    const WrongAnimal* wrongmeta = new WrongAnimal();
-    const WrongAnimal* wrongi = new WrongCat();
-    std::cout << wrongi->getType() << " " << std::endl;
-    wrongi->makeSound();
-    wrongmeta->makeSound();
-    delete(wrongmeta);
-    delete(wrongi);
+    std::cout << "And "<< cat->getType() << " says :" << std::endl;
+    cat->makeSound();
+
+    std::cout << "And "<< animal->getType() << " (Animal) says :" << std::endl;
+    animal->makeSound();
+    delete(cat);
+    delete(dog);
+    delete(animal);
+
+    std::cout << std::endl << "Testing without virtual fonction makeSound()" << std::endl << std::endl;
+    const WrongAnimal* wronganimal = new WrongAnimal();
+    const WrongAnimal* wrongcat = new WrongCat();
+
+    std::cout << "And "<< wrongcat->getType() << " says :" << std::endl;
+    wrongcat->makeSound();
+
+    std::cout << "And Wronganimal says :" << std::endl;
+    wronganimal->makeSound();
+    
+    delete(wronganimal);
+    delete(wrongcat);
     return (0);
 }

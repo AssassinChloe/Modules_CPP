@@ -57,9 +57,9 @@ std::string DiamondTrap::getname() const
 
 void DiamondTrap::attack(const std::string& target)
 {
-    ScavTrap::_name = this->_name;
+    // ScavTrap::_name = this->_name;
     ScavTrap::attack(target);
-    ClapTrap::_name = this->_name + "_clap_name";
+    // ClapTrap::_name = this->_name + "_clap_name";
 
 }
 

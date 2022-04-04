@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Brain.hpp"
 
-WrongCat::WrongCat()
+Brain::Brain()
 {
-    this->_type = "WrongCat";
-    std::cout << "Constructor WrongCat" << std::endl;
+    std::cout << "Constructor Brain" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const & src)
+Brain::Brain(Brain const & src)
 {
     *this = src;
     return ;
 }
 
-WrongCat& WrongCat::operator=(WrongCat const & var)
+Brain& Brain::operator=(Brain const & var)
 {
+    int i;
+
     if (this != &var)
     {
-        this->_type = var.getType();
+        for (i = 0; i < 100; i++)
+        {
+            this->_ideas[i] = var._ideas[i];
+        }
     }
     return *this;
 }
 
-WrongCat::~WrongCat()
+Brain::~Brain()
 {
-    std::cout << "Destructor WrongCat" << std::endl;
+    std::cout << "Destructor Brain" << std::endl;
 }
 
-void WrongCat::makeSound() const
+void Brain::setIdeas(std::string idea, int index)
 {
-    std::cout << "Miaou! Miaou!" << std::endl;
+    if (index >= 0 && index <= 99)
+        this->_ideas[index] = idea;   
+}
+
+std::string Brain::getIdeas(int index) const
+{
+    if (index >= 0 && index <= 99)
+        return(this->_ideas[index]);
+    return (NULL);
 }

@@ -29,8 +29,15 @@ Cat& Cat::operator=(Cat const & var)
     if (this != &var)
     {
         this->_type = var.getType();
+        this->_brain = new Brain();
+        *this->_brain = *var.getBrain();
     }
     return *this;
+}
+
+Brain *Cat::getBrain() const
+{
+    return (this->_brain);
 }
 
 Cat::~Cat()

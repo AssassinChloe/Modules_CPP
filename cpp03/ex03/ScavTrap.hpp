@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include "ClapTrap.hpp"
+//# include "DiamondTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap
 {

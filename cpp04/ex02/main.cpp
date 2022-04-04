@@ -14,13 +14,13 @@
 
 int main()
 {
-    int nb(10);
+    int nb(4);
     int i;
 
-    std::cout << std::endl << "Testing Virtual Destructor" << std::endl << std::endl;
+    std::cout << std::endl << "Testing Cat and Dog" << std::endl << std::endl;
 
-    std::cout << "Creation of 10 animals : even index = dog, odd index = cat " << std::endl;
-    const Animal* tab[nb];
+    std::cout << "Creation of 4 AAnimals : even index = dog, odd index = cat " << std::endl;
+    const AAnimal* tab[nb];
     for(i = 0; i < nb; i++)
     {
         if (i % 2 == 0)
@@ -35,13 +35,9 @@ int main()
         delete(tab[i]);
     }
 /* ************************************************************************** */
-/* A decommenter et utiliser avec Valgring pour voir l'erreur*/
+/* A decommenter pour voir l'erreur de compilation a cause de la classe abstraite de AAnimal*/
 /* del here
-    std::cout << std::endl << "Testing without Virtual Destructor" << std::endl << std::endl;
-    const WrongAnimal* test;
-    test = new WrongCat();
-    delete(test);
-    std::cout << "Destructor wrong cat and destructor brain are not used because the computer sees the wrongcat as a wronganimal only" << std::endl;
+    AAnimal test;
 and here */  
 /* ************************************************************************** */
     

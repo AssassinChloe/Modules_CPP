@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   AMateria.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "AMateria.hpp"
 
-WrongCat::WrongCat()
+AMateria::AMateria()
 {
-    this->_type = "WrongCat";
-    std::cout << "Constructor WrongCat" << std::endl;
+    std::cout << "Constructor AMaetria" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const & src)
+AMateria::AMateria(AMateria const & src)
 {
     *this = src;
     return ;
 }
 
-WrongCat& WrongCat::operator=(WrongCat const & var)
+AMateria::AMateria(std::string const & type) : _type(type)
+{}
+
+
+AMateria& AMateria::operator=(AMateria const & var)
 {
-    if (this != &var)
-    {
-        this->_type = var.getType();
-    }
+    this->clone();
     return *this;
 }
 
-WrongCat::~WrongCat()
+AMateria::~AMateria()
 {
-    std::cout << "Destructor WrongCat" << std::endl;
+    std::cout << "Desstructor AMaetria" << std::endl;
 }
 
-void WrongCat::makeSound() const
+std::string const & AMateria::getType() const
 {
-    std::cout << "Miaou! Miaou!" << std::endl;
+    return (this->_type);
 }
+
+void AMateria::use(ICharacter& target)
+{}

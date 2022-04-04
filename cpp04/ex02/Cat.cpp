@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Cat.hpp"
 
-WrongCat::WrongCat()
+Cat::Cat() : _brain(new Brain())
 {
-    this->_type = "WrongCat";
-    std::cout << "Constructor WrongCat" << std::endl;
+    this->_type = "Cat";
+    std::cout << "Constructor Cat" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const & src)
+Cat::Cat(Cat const & src)
 {
     *this = src;
     return ;
 }
 
-WrongCat& WrongCat::operator=(WrongCat const & var)
+Cat& Cat::operator=(Cat const & var)
 {
     if (this != &var)
     {
         this->_type = var.getType();
+        this->_brain = new Brain();
+        *this->_brain = *var.getBrain();
     }
     return *this;
 }
 
-WrongCat::~WrongCat()
+Cat::~Cat()
 {
-    std::cout << "Destructor WrongCat" << std::endl;
+    delete(this->_brain);
+    std::cout << "Destructor Cat" << std::endl;
 }
 
-void WrongCat::makeSound() const
+void Cat::makeSound() const
 {
     std::cout << "Miaou! Miaou!" << std::endl;
+}
+
+Brain *Cat::getBrain() const
+{
+    return (this->_brain);
 }

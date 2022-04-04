@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                          :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : _brain(new Brain())
 {
     this->_type = "WrongCat";
     std::cout << "Constructor WrongCat" << std::endl;
@@ -29,16 +29,24 @@ WrongCat& WrongCat::operator=(WrongCat const & var)
     if (this != &var)
     {
         this->_type = var.getType();
+        this->_brain = new Brain();
+        *this->_brain = *var.getBrain();
     }
     return *this;
 }
 
 WrongCat::~WrongCat()
 {
+    delete(this->_brain);
     std::cout << "Destructor WrongCat" << std::endl;
 }
 
 void WrongCat::makeSound() const
 {
     std::cout << "Miaou! Miaou!" << std::endl;
+}
+
+Brain *WrongCat::getBrain() const
+{
+    return (this->_brain);
 }

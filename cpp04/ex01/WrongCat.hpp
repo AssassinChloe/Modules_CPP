@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include "WrongAnimal.hpp"
+# include "Brain.hpp"
 
 class WrongCat : public WrongAnimal
 {
@@ -23,8 +24,12 @@ class WrongCat : public WrongAnimal
         WrongCat(WrongCat const & src);
         ~WrongCat();
         WrongCat& operator=(WrongCat const & var);
+
+        virtual void makeSound() const;
+        Brain *getBrain() const;
         
-        void makeSound() const;
+    private:
+        Brain *_brain;
 };
 
 #endif

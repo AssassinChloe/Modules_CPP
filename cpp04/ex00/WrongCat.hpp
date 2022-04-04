@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -21,7 +21,7 @@ class WrongCat : public WrongAnimal
     public:
         WrongCat();
         WrongCat(WrongCat const & src);
-        ~WrongCat();
+        virtual ~WrongCat();
         WrongCat& operator=(WrongCat const & var);
         
         void makeSound() const;

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 00:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:32 by cassassi         ###   ########.fr       */
+/*   Created: 2022/04/04 16:33:12 by cassassi          #+#    #+#             */
+/*   Updated: 2022/04/04 17:14:31 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-#define DOG_H
+
+#ifndef CURE_H
+#define CURE_H
 
 # include <iostream>
-# include "Animal.hpp"
-
-class Dog : public Animal
+# include "AMateria.hpp"
+class Cure : public AMateria
 {
     public:
-        Dog();
-        Dog(Dog const & src);
-        virtual ~Dog();
-        Dog& operator=(Dog const & var);
+        Cure();
+        Cure(Cure const & src);
+        virtual ~Cure();
 
-        virtual void makeSound() const;        
+        Cure& operator=(Cure const & var);
+    private:
+        
 };
 
 #endif

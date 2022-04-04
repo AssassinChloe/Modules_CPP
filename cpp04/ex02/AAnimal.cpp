@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "AAnimal.hpp"
 
-WrongCat::WrongCat()
+AAnimal::AAnimal()
 {
-    this->_type = "WrongCat";
-    std::cout << "Constructor WrongCat" << std::endl;
+    std::cout << "Constructor AAnimal" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const & src)
+AAnimal::AAnimal(AAnimal const & src)
 {
     *this = src;
     return ;
 }
 
-WrongCat& WrongCat::operator=(WrongCat const & var)
+AAnimal& AAnimal::operator=(AAnimal const & var)
 {
     if (this != &var)
     {
@@ -33,12 +32,12 @@ WrongCat& WrongCat::operator=(WrongCat const & var)
     return *this;
 }
 
-WrongCat::~WrongCat()
+AAnimal::~AAnimal()
 {
-    std::cout << "Destructor WrongCat" << std::endl;
+    std::cout << "Destructor AAnimal" << std::endl;
 }
 
-void WrongCat::makeSound() const
+std::string    AAnimal::getType() const
 {
-    std::cout << "Miaou! Miaou!" << std::endl;
+    return (this->_type);
 }

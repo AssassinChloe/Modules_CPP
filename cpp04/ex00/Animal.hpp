@@ -20,7 +20,7 @@ class Animal
     public:
         Animal();
         Animal(Animal const & src);
-        ~Animal();
+        virtual ~Animal();
         Animal& operator=(Animal const & var);
 
         std::string getType() const;

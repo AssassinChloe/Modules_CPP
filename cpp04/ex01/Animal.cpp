@@ -12,7 +12,7 @@
 
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Animal")
+Animal::Animal()
 {
     std::cout << "Constructor Animal" << std::endl;
 }
@@ -43,6 +43,4 @@ std::string    Animal::getType() const
 }
 
 void Animal::makeSound() const
-{
-    std::cout << "You hear an unbearable noise, like every Earth's animal's voices (and beyond) were talking together... oopsie" << std::endl;
-}
+{}

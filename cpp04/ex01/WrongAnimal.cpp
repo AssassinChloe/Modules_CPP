@@ -12,7 +12,7 @@
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : _type("Wrong_Animal")
+WrongAnimal::WrongAnimal()
 {
     std::cout << "Constructor WrongAnimal" << std::endl;
 }
@@ -44,5 +44,4 @@ std::string    WrongAnimal::getType() const
 
 void WrongAnimal::makeSound() const
 {
-    std::cout << "You hear an unbearable noise, like every Earth's animal's voices (and beyond) were talking together... oopsie" << std::endl;
 }

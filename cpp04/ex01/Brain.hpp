@@ -23,6 +23,9 @@ class Brain
         virtual ~Brain();
         Brain& operator=(Brain const & var);
         
+        void setIdeas(std::string idea, int index);
+        std::string getIdeas(int index);
+        
     private:
        std::string  _ideas[100]; 
 };

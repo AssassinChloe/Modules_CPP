@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:33:01 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/04 17:08:43 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/04 17:26:22 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include "ICharacter.hpp"
+
 class Character : public ICharacter
 {
     public:
@@ -23,7 +24,7 @@ class Character : public ICharacter
         virtual ~Character();
 
         Character& operator=(Character const & var);
-        virtual std::string const & getName() const = 0;
+        virtual std::string const & getName();
     
     private:
         Character();

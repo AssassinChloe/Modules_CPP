@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:29:13 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/04 16:59:50 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/04 17:23:43 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ class Ice : public AMateria
         Ice& operator=(Ice const & var);
 
         virtual AMateria* clone() const;
-        virtual void use(ICharacter& target);
+        virtual void use(int idx, ICharacter& target);
     private:
         
 };
-
-std::ostream & operator<<(std::ostream & ostream, Ice const & instance);
 
 #endif

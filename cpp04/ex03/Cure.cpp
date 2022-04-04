@@ -6,10 +6,9 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:33:09 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/04 17:11:50 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/04 17:27:26 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "Cure.hpp"
 
@@ -24,18 +23,16 @@ Cure::Cure(Cure const & src)
     return ;
 }
 
-// Cure& Cure::operator=(Cure const & var)
-// {
-//     if (this != &var)
-//     {
-//         /*modifier les variables*/
-//         this-> ;
-//     }
-//     return *this;
-// }
+Cure& Cure::operator=(Cure const & var)
+{
+    if (this != &var)
+        return this->clone();
+}
 
 Cure::~Cure()
-{}
+{
+    std::cout << "Destructor Cure" << std::endl;
+}
 
 AMateria* Cure::clone() const
 {

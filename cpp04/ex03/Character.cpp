@@ -6,13 +6,13 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:33:05 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/04 17:18:18 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/05 13:55:08 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "Character.hpp"
 
+_inventory_size = 0;
 Character::Character()
 {}
 
@@ -23,17 +23,23 @@ Character::Character(std::string name) : _name(name)
 
 Character::Character(Character const & src)
 {
-    // std::cout << "Copy constructor called" << std::endl;
     *this = src;
     return ;
 }
 
 Character& Character::operator=(Character const & var)
 {
+    int i;
+
+    i = 0;
     if (this != &var)
     {
         this->_name = var.getName();
-        this->_inventory = var.getInventory(;)
+        while (i < _inventory_size)
+        {
+            this->_inventory[i] = AMateria::clone(var.getInventory(i);
+            i++;
+        }
     }
     return *this;
 }
@@ -47,3 +53,15 @@ std::string const & Character::getName() const
 {
     return (this->_name);
 }
+
+AMateria *Character::getInventory(int i) const
+{
+    return (this->_inventory[i]);
+}
+
+void Character::equip(AMateria* m)
+{}
+void Character::unequip(int idx)
+{}
+void Character::use(int idx, ICharacter& target)
+{}

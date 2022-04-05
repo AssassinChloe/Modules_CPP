@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/04 17:26:34 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/05 13:30:21 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include "IMateriaSource.hpp"
+# include "ICharacter.hpp"
 
 class AMateria : public IMateriaSource
 {
@@ -32,7 +33,7 @@ class AMateria : public IMateriaSource
         virtual void use(ICharacter& target);
 
     protected:
-        std::string type;
+        std::string _type;
      
     private:
         

@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:33:01 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/04 17:26:22 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/05 13:55:16 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,16 @@ class Character : public ICharacter
 
         Character& operator=(Character const & var);
         virtual std::string const & getName();
+        AMateria *getInventory(int i) const;
+        virtual void equip(AMateria* m);
+        virtual void unequip(int idx);
+        virtual void use(int idx, ICharacter& target);
     
     private:
         Character();
-        std::string const _name;
-        std::string _inventory[4];  
+        static int          _inventory_size;
+        std::string         _name;
+        AMateria            *_inventory[4];  
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:40:27 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/04 17:14:14 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/05 13:55:12 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #define MATERIASOURCE_H
 
 # include <iostream>
+#include "AMateria.hpp"
 class MateriaSource
 {
     public:
@@ -23,6 +24,8 @@ class MateriaSource
         virtual ~MateriaSource();
 
         MateriaSource& operator=(MateriaSource const & var);
+        virtual void learnMateria(AMateria*) = 0;
+        virtual AMateria* createMateria(std::string const & type) = 0;
     private:
         
 };

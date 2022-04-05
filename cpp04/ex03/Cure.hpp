@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 
-#ifndef CURE_H
-#define CURE_H
+#ifndef CURE_HPP
+#define CURE_HPP
 
 # include <iostream>
 # include "AMateria.hpp"
+
 class Cure : public AMateria
 {
     public:
@@ -24,8 +25,8 @@ class Cure : public AMateria
         virtual ~Cure();
 
         Cure& operator=(Cure const & var);
-    private:
-        
+        virtual AMateria *clone( void ) const ;
+        virtual void use(ICharacter& target);      
 };
 
 #endif

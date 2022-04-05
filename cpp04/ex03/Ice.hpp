@@ -14,7 +14,7 @@
 #define ICE_H
 
 # include <iostream>
-# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
 class Ice : public AMateria
 {
@@ -24,11 +24,8 @@ class Ice : public AMateria
         virtual ~Ice();
 
         Ice& operator=(Ice const & var);
-
-        virtual AMateria* clone() const;
-        virtual void use(int idx, ICharacter& target);
-    private:
-        
+        virtual AMateria *clone( void ) const ;
+        virtual void use(ICharacter& target);
 };
 
 #endif

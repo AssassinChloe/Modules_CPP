@@ -13,7 +13,7 @@
 #ifndef IMATERIASOURCE_H
 #define IMATERIASOURCE_H
 
-# include <iostream>
+# include "AMateria.hpp"
 
 class IMateriaSource
 {

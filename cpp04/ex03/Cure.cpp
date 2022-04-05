@@ -12,12 +12,12 @@
 
 #include "Cure.hpp"
 
-Cure::Cure() : _type("cure")
+Cure::Cure() : AMateria("cure")
 {
     std::cout << "Constructor Cure" << std::endl;
 }
 
-Cure::Cure(Cure const & src)
+Cure::Cure(Cure const & src) : AMateria("cure")
 {
     *this = src;
     return ;
@@ -26,7 +26,8 @@ Cure::Cure(Cure const & src)
 Cure& Cure::operator=(Cure const & var)
 {
     if (this != &var)
-        return this->clone();
+        this->_type = var.getType();
+        return *this;
 }
 
 Cure::~Cure()
@@ -36,12 +37,12 @@ Cure::~Cure()
 
 AMateria* Cure::clone() const
 {
-    return (new Cure());
+    return (new Cure(*this));
 }
-
 
 void Cure::use(ICharacter& target)
 {
     std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
+
 

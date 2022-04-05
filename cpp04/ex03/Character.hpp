@@ -13,27 +13,27 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-# include <iostream>
 # include "ICharacter.hpp"
 
 class Character : public ICharacter
 {
     public:
-        Character(std::string name);
+        Character(const std::string & name);
         Character(Character const & src);
         virtual ~Character();
 
-        Character& operator=(Character const & var);
-        virtual std::string const & getName();
-        AMateria *getInventory(int i) const;
+        Character& operator=(const Character & var);
+        virtual std::string const & getName() const;
         virtual void equip(AMateria* m);
         virtual void unequip(int idx);
         virtual void use(int idx, ICharacter& target);
+        int Character::getInventorySize() const;
+        AMateria *getInventory(int i) const;
     
     private:
         Character();
-        static int          _inventory_size;
         std::string         _name;
+        int                 _nb_obj;
         AMateria            *_inventory[4];  
 };
 

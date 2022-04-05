@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                          :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 00:18:11 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:19 by cassassi         ###   ########.fr       */
+/*   Created: 2022/04/05 22:01:18 by cassassi          #+#    #+#             */
+/*   Updated: 2022/04/05 22:01:18 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 AMateria::AMateria()
-{
-    std::cout << "Constructor AMaetria" << std::endl;
-}
+{}
 
 AMateria::AMateria(AMateria const & src)
 {
@@ -24,27 +22,24 @@ AMateria::AMateria(AMateria const & src)
 }
 
 AMateria::AMateria(std::string const & type) : _type(type)
-{}
-
+{
+    std::cout << "Constructor AMateria" << std::endl;
+}
 
 AMateria& AMateria::operator=(AMateria const & var)
 {
-    this->clone();
+    this->_type = var.getType();
     return *this;
 }
 
 AMateria::~AMateria()
 {
-    std::cout << "Desstructor AMaetria" << std::endl;
+    std::cout << "Destructor AMateria" << std::endl;
 }
 
 std::string const & AMateria::getType() const
 {
     return (this->_type);
-}
-AMateria* AMateria::clone() const
-{
-
 }
 
 void AMateria::use(ICharacter& target)

@@ -17,26 +17,24 @@
 # include "IMateriaSource.hpp"
 # include "ICharacter.hpp"
 
-class AMateria : public IMateriaSource
+class AMateria
 {
     public:
-        AMateria();
-        AMateria(AMateria const & src);
+
         AMateria(std::string const & type);
-
         virtual ~AMateria();
-
         AMateria& operator=(AMateria const & var);
 
         std::string const & getType() const;
         virtual AMateria* clone() const = 0;
-        virtual void use(ICharacter& target);
+        virtual void use(ICharacter& target) = 0;
 
     protected:
         std::string _type;
-     
-    private:
-        
+    
+    private :
+        AMateria();
+        AMateria(AMateria const & src);   
 };
 
 #endif

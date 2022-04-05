@@ -13,7 +13,7 @@
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource()
+MateriaSource::MateriaSource() : _nb_known(0)
 {
     std::cout << "Constructor MateriaSource" << std::endl;
 }
@@ -29,14 +29,41 @@ MateriaSource& MateriaSource::operator=(MateriaSource const & var)
 {
     if (this != &var)
     {
-        /*modifier les variables*/
-        this-> ;
-    }
+        for (int i = 0; i < 4; i++)
+	{
+		if (i < _nb_known)
+			delete this->_materia[i];
+		if (var._materia[i])
+			this->_materia[i] = var._materia[i]->clone();
+		else
+			this->_materia[i] = NULL;
+	}
+    this->_nb_known = var._nb_known;
     return *this;
 }
 
 MateriaSource::~MateriaSource()
 {
     std::cout << "Destructor MateriaSource" << std::endl;
+}
 
+void MateriaSource::learnMateria(AMateria* tolearn)
+{
+    if (this->_nb_known < 4)
+    {
+        this->_materia[this->_nb_known] = tolearn;
+        this->_nb_known++;
+        std::cout << tolearn->getType() << " Materia has been learned" << std::endl;
+    }
+    else
+		std::cout << "Can't learn any more materias" << std::endl;
+}
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+    for (int i = 0; i < this->_nb_known; i++)
+	{
+		if (type == this->_materia[i]->getType())
+			return this->_materia[i]->clone();
+	}
+	return NULL;
 }

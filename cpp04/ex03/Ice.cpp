@@ -12,12 +12,12 @@
 
 #include "Ice.hpp"
 
-Ice::Ice() : _type("ice")
+Ice::Ice() : AMateria("ice")
 {
     std::cout << "Constructor Ice" << std::endl;
 }
 
-Ice::Ice(Ice const & src)
+Ice::Ice(Ice const & src) : AMateria("ice")
 {
     *this = src;
     return ;
@@ -26,7 +26,8 @@ Ice::Ice(Ice const & src)
 Ice& Ice::operator=(Ice const & var)
 {
     if (this != &var)
-        return this->clone();
+        this->_type = var.getType();
+    return (*this);
 }
 
 Ice::~Ice()
@@ -36,7 +37,7 @@ Ice::~Ice()
 
 AMateria* Ice::clone() const
 {
-    return (new Ice());
+    return (new Ice(*this));
 }
 
 void Ice::use(ICharacter& target)

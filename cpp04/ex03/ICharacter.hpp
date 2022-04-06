@@ -6,15 +6,17 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/05 13:38:09 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/06 14:18:03 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_H
 #define ICHARACTER_H
 
-# include <iostream>
-#include "AMateria.hpp"
+# include "AMateria.hpp"
+# include <string>
+
+class AMateria;
 
 class ICharacter
 {

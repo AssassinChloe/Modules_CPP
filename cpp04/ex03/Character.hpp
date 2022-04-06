@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:33:01 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/05 13:55:16 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:28:55 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CHARACTER_H
 
 # include "ICharacter.hpp"
+# include <string>
 
 class Character : public ICharacter
 {
@@ -27,7 +28,7 @@ class Character : public ICharacter
         virtual void equip(AMateria* m);
         virtual void unequip(int idx);
         virtual void use(int idx, ICharacter& target);
-        int Character::getInventorySize() const;
+        int getInventorySize() const;
         AMateria *getInventory(int i) const;
     
     private:

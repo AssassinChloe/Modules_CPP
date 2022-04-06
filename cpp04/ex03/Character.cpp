@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:33:05 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/05 13:55:08 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:46:36 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ Character::Character()
 
 Character::Character(const std::string & name) : _name(name), _nb_obj(0)
 {
+    int i;
+
+    for (i = 0; i < 4; i++)
+    {
+        this->_inventory[i] = NULL;
+    }
     std::cout << "Constructor Character" << std::endl;
 }
 
@@ -38,20 +44,17 @@ Character& Character::operator=(const Character & var)
             delete this->_inventory[i++];
         this->_nb_obj = var.getInventorySize();
         i = 0;
-        while (i < _nb_obj)
-            this->_inventory[i] = getInventory(i++);
+        while (i < this->_nb_obj)
+        {
+            this->_inventory[i] = getInventory(i);
+            i++;
+        }
     }
     return *this;
 }
 
 Character::~Character()
 {
-    int i;
-
-    for (i = 0; i < this->_nb_obj; i++)
-    {
-        delete this->_inventory[i];
-    }
     std::cout << "Destructor Character" << std::endl;
 }
 
@@ -72,9 +75,14 @@ AMateria *Character::getInventory(int i) const
 
 void Character::equip(AMateria* m)
 {
+    int i;
+
+    i = 0;
     if (this->_nb_obj < 4)
     {
-        this->_inventory[this->_nb_obj - 1] = m;
+        while (this->_inventory[i] != NULL)
+            i++;
+        this->_inventory[i] = m;
         this->_nb_obj++;
         std::cout << m->getType() << " materia successfully equiped" << std::endl;
     }
@@ -84,20 +92,16 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    int i;
-
-    i = idx + 1;
-    while (i < 4 && i <= this->_nb_obj)
-    {
-        this->_inventory[i - 1] = this->_inventory[i];
-        i++;
-    }
-    this->_inventory[i] = NULL;
-    this->_nb_obj -= 1; 
+    if (this->_inventory[idx])    
+        this->_inventory[idx] = NULL;
+    this->_nb_obj--; 
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-    this->_inventory[idx]->use(target);
-    this->unequip(idx);
+    if (idx >= 0 && idx < 4 && this->_inventory[idx] != NULL)
+    {
+        this->_inventory[idx]->use(target);
+        this->unequip(idx);
+    }
 }

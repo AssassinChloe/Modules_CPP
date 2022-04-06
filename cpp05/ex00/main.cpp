@@ -9,8 +9,7 @@ int main ()
     std::cout << "Stats :" << std::endl << *employee << std::endl;
     std::cout << *chef << std::endl;
 
-    std::cout << std::endl << "TEST Bobbynator(0)" << std::endl;
-
+    std::cout << std::endl << "TEST Bobbynator(0) : catch expected" << std::endl;
     try
     {
         Bureaucrat super_chef("Bobbynator", 0);
@@ -20,8 +19,7 @@ int main ()
         std::cerr << e.what() << std::endl;
     }
     
-    std::cout << std::endl << "TEST Bo(200)" << std::endl;
-
+    std::cout << std::endl << "TEST Bo(200) : catch expected" << std::endl;
     try 
     {
         Bureaucrat random_person("Bo", 200);
@@ -30,8 +28,7 @@ int main ()
     {
         std::cerr << e.what() << std::endl;
     }
-    std::cout << std::endl << "TEST to promote Bob and demote Bobby" << std::endl;
-
+   std::cout << std::endl << "TEST to promote Bob and demote Bobby" << std::endl;
     try
     {
         employee->promotion();
@@ -45,7 +42,7 @@ int main ()
     std::cout << "Stats :" << std::endl << *employee << std::endl;
     std::cout << *chef << std::endl;
 
-    std::cout << std::endl << "TEST to demote Bob and promote Bobby" << std::endl;
+    std::cout << std::endl << "TEST to demote Bob and promote Bobby (back to initial stat)" << std::endl;
     try
     {
         chef->promotion();
@@ -57,7 +54,7 @@ int main ()
     }
     std::cout << "Stats :" << std::endl << *employee << std::endl;
     std::cout << *chef << std::endl;
-    std::cout << std::endl << "TEST to demote Bob and promote Bobby again" << std::endl;
+    std::cout << std::endl << "TEST to demote Bob and promote Bobby again : catch expected" << std::endl;
     try
     {
         chef->promotion();

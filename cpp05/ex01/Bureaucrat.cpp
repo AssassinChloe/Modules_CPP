@@ -68,3 +68,15 @@ void Bureaucrat::demotion()
     else
         throw lowex;
 }
+
+void Bureaucrat::signForm(Form & form)
+{
+    if (form.beSigned(*this) == true)
+    {
+        std::cout << this->_name << " signed " << form.getName() << std::endl;
+    }
+    else
+    {
+        std::cout << this->_name << " couldn't signed " << form.getName() << " because it was allready signed" << std::endl;
+    }
+}

@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:40:27 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/05 13:55:12 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:13:36 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #define MATERIASOURCE_H
 
 # include <iostream>
+# include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
 {
@@ -30,6 +31,8 @@ class MateriaSource : public IMateriaSource
     private:
         AMateria    *_materia[4];
         int         _nb_known;
+        AMateria    *_creations[20];
+        int        _nb_created;
 };
 
 #endif

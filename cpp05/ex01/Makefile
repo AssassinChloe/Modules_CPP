@@ -6,13 +6,13 @@
 #    By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 13:55:30 by cassassi          #+#    #+#              #
-#    Updated: 2022/04/06 15:59:06 by cassassi         ###   ########.fr        #
+#    Updated: 2022/04/06 17:26:44 by cassassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	burocracy
+NAME	=	formality
 
-SRC		=	main.cpp Bureaucrat.cpp
+SRC		=	main.cpp Bureaucrat.cpp Form.cpp
 
 OBJSD   =	.obj/
 

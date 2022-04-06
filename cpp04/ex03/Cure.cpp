@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:33:09 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/04 17:27:26 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:37:32 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Cure& Cure::operator=(Cure const & var)
 {
     if (this != &var)
         this->_type = var.getType();
-        return *this;
+    return *this;
 }
 
 Cure::~Cure()
@@ -44,5 +44,3 @@ void Cure::use(ICharacter& target)
 {
     std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 22:01:18 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/05 22:01:18 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/06 14:06:01 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,3 @@ std::string const & AMateria::getType() const
 {
     return (this->_type);
 }
-
-void AMateria::use(ICharacter& target)
-{}

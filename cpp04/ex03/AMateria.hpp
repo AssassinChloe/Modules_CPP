@@ -6,16 +6,18 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/05 13:30:21 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:35:35 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_H
 #define AMATERIA_H
 
-# include <iostream>
-# include "IMateriaSource.hpp"
 # include "ICharacter.hpp"
+# include <string>
+# include <iostream>
+
+class ICharacter;
 
 class AMateria
 {

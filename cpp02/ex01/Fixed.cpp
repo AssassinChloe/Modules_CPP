@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:11 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:19 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/07 12:16:17 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ Fixed::Fixed(Fixed const& src)
 }
 
 Fixed::Fixed(int const nb) : _raw_bits(nb << this->_bits)
-{}
+{
+    std::cout << "Int constructor called" << std::endl;
+}
 
 Fixed::Fixed(float const nbf)
 {
+    std::cout << "Float constructor called" << std::endl;
     this->_raw_bits = roundf(nbf * (1 << this->_bits));
 }
 
@@ -42,7 +45,7 @@ Fixed& Fixed::operator=(Fixed const & var)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &var)
-    this->_raw_bits = var.getRawBits();
+        this->_raw_bits = var.getRawBits();
     return *this;
 }
 
@@ -53,8 +56,6 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits( void ) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
-    
     return (this->_raw_bits);
 }
 

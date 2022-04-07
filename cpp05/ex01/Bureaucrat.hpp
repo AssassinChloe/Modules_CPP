@@ -4,6 +4,7 @@
 
 # include <iostream>
 # include <string>
+# define ERROR "\033[1;31m ERROR : \033[0m"
 # include "Form.hpp"
 
 class Form;

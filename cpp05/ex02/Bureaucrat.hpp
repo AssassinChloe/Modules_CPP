@@ -5,6 +5,9 @@
 # include <iostream>
 # include <string>
 # define ERROR "\033[1;31m ERROR : \033[0m"
+# include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -36,7 +39,7 @@ class Bureaucrat
         int getGrade() const;
         void promotion();
         void demotion();
-
+        void signAForm(AForm & AForm);
     
     private:
         Bureaucrat();

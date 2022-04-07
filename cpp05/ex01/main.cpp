@@ -11,33 +11,35 @@ int main ()
     std::cout << "Stats :" << std::endl << *employee << std::endl;
     std::cout << *chef << std::endl;
 
-    std::cout << std::endl << "TEST employee signed the forms -> Errors are expected" << std::endl;
+    std::cout << std::endl << "     ***** TEST employee Bob(150) signed the forms -> Errors are expected *****" << std::endl;
     while (i < 3)
     {
         try
         {
-            std::cout << form[i] << std::endl;
+            std::cout << form[i] << std::endl << std::endl;
             employee->signForm(form[i]);
+            std::cout << std::endl;
         }
         catch(const std::exception& e)
         {
-            std::cerr << "ERROR : " << e.what() << std::endl << std::endl;
+            std::cerr << ERROR << e.what() << std::endl;
         }
         i++;
     }
     
     i = 0;
-    std::cout << std::endl << "TEST chef is signing" << std::endl;
+    std::cout << std::endl << "     ***** TEST chef Bobby(0) is signing *****" << std::endl;
     while (i < 3)
     {
         try
         {
-            std::cout << form[i] << std::endl;
+            std::cout << form[i] << std::endl << std::endl;
             chef->signForm(form[i]);
+            std::cout << std::endl;
         }
         catch(const std::exception& e)
         {
-            std::cerr << "ERROR : " << e.what() << std::endl << std::endl;
+            std::cerr << ERROR << e.what() << std::endl;
         }
         i++;
     }

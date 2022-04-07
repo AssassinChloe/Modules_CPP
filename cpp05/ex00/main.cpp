@@ -16,7 +16,7 @@ int main ()
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << ERROR << e.what() << std::endl;
     }
     
     std::cout << std::endl << "TEST Bo(200) : catch expected" << std::endl;
@@ -26,9 +26,9 @@ int main ()
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << ERROR << e.what() << std::endl;
     }
-   std::cout << std::endl << "TEST to promote Bob and demote Bobby" << std::endl;
+    std::cout << std::endl << "TEST to promote Bob and demote Bobby" << std::endl;
     try
     {
         employee->promotion();
@@ -36,7 +36,7 @@ int main ()
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << ERROR << e.what() << std::endl;
     }
     
     std::cout << "Stats :" << std::endl << *employee << std::endl;
@@ -50,7 +50,7 @@ int main ()
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << ERROR << e.what() << std::endl;
     }
     std::cout << "Stats :" << std::endl << *employee << std::endl;
     std::cout << *chef << std::endl;
@@ -62,7 +62,7 @@ int main ()
     }
     catch(const std::exception& e)
     {
-        std::cerr << "ERROR : " << e.what() << std::endl;
+        std::cerr << ERROR << e.what() << std::endl;
     }
     std::cout << "Stats :" << std::endl << *employee << std::endl;
     std::cout << *chef << std::endl;

@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/08 10:44:29 by cassassi          #+#    #+#             */
+/*   Updated: 2022/04/08 10:44:29 by cassassi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef BUREAUCRAT_H
 #define BUREAUCRAT_H
 
 # include <iostream>
 # include <string>
-# define ERROR "\033[1;31m ERROR : \033[0m"
 # include "AForm.hpp"
+# define ERROR "\033[1;31m ERROR : \033[0m"
 
 class AForm;
 
@@ -29,6 +41,15 @@ class Bureaucrat
             }
     } lowex;
 
+    class UnsignedForm : public std::exception
+    {
+        public :
+            virtual const char *what() const throw()
+            {
+                return ("The form need to be signed to be used");
+            }
+    } unsignedex;
+
     public:
         Bureaucrat(std::string name, int grade);
         Bureaucrat(Bureaucrat const & src);
@@ -39,7 +60,8 @@ class Bureaucrat
         int getGrade() const;
         void promotion();
         void demotion();
-        void signAForm(AForm & AForm);
+        void signAForm(AForm & form);
+        void executeForm(AForm const & form) const;
     
     private:
         Bureaucrat();

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -32,17 +32,20 @@ class AForm
         int getSignatureGrade() const;
         int getExecutionGrade() const;
         bool beSigned(Bureaucrat const & worker);
-        virtual void beExecuted(std::string target) = 0;
+        virtual void execute(Bureaucrat const & executor) const = 0;
+        
         
     private:
         AForm();
 
     protected:
-        AForm(std::string name, int sig_grade, int exec_grade);
+        AForm(std::string name, int sig_grade, int exec_grade, std::string target);
         const std::string _name;
         bool        _signed;
         const int   _signature_grade;
         const int   _execution_grade;
+        std::string _target;
+
         class GradeTooHighException : public std::exception
         {
             public :
@@ -60,15 +63,6 @@ class AForm
                     return ("Your grade is too low");
                 }
         } lowex;
-
-        class UnsignedForm : public std::exception
-        {
-            public :
-                virtual const char *what() const throw()
-                {
-                    return ("The form need to be signed to be used");
-                }
-        } unsignedex;
         
 };
 

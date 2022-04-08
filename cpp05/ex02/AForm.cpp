@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,13 +13,13 @@
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("blank paper"), _signed(false), _signature_grade(1), _execution_grade(1)
+AForm::AForm() : _name("blank paper"), _signed(false), _signature_grade(1), _execution_grade(1), _target("unknown")
 {
     std::cout << "Default AForm constructor called" << std::endl;
 }
 
-AForm::AForm(std::string name, int sig_grade, int exec_grade)
- : _name(name), _signed(false), _signature_grade(sig_grade), _execution_grade(exec_grade) 
+AForm::AForm(std::string name, int sig_grade, int exec_grade, std::string target)
+ : _name(name), _signed(false), _signature_grade(sig_grade), _execution_grade(exec_grade), _target(target) 
 {
     std::cout << "AForm constructor called" << std::endl;
 }
@@ -52,15 +52,15 @@ std::ostream & operator<<(std::ostream & ostream, AForm const & instance)
 {
     if (instance.getSigned() == true)
     {
-        ostream << "AForm : " << instance.getName() << std::endl << "Requierment for signature : grade " 
-        << instance.getSignatureGrade() << ", for execution : " << instance.getExecutionGrade() << std::endl
-        << "The AForm is signed";
+        ostream << "Form : " << instance.getName() << std::endl << "Grade requierment for signature : " 
+        << instance.getSignatureGrade() << std::endl << "Grade requierment for execution : " << instance.getExecutionGrade() << std::endl
+        << instance.getName() << " is signed";
     }
     else
     {
-        ostream << "AForm : " << instance.getName() << std::endl << "Requierment for signature : grade " 
-        << instance.getSignatureGrade() << ", for execution : " << instance.getExecutionGrade() << std::endl
-        << "The AForm is unsigned";
+        ostream << "Form : " << instance.getName() << std::endl << "Grade requierment for signature : " 
+        << instance.getSignatureGrade() << std::endl << "Grade requierment for execution : " << instance.getExecutionGrade() << std::endl
+        << instance.getName() << " is unsigned";
     }
     return (ostream);
 }
@@ -83,4 +83,20 @@ int AForm::getSignatureGrade() const
 int AForm::getExecutionGrade() const
 {
     return(this->_execution_grade);
+}
+
+bool AForm::beSigned(Bureaucrat const & worker)
+{
+    if (worker.getGrade() > this->_signature_grade)
+        throw lowex;
+    else
+    {
+        if (this->_signed == false)
+        {
+            this->_signed = true;
+            return (true);
+        }
+        else
+            return (false);
+    }
 }

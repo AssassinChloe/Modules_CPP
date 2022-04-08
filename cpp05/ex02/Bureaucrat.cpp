@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/08 10:44:47 by cassassi          #+#    #+#             */
+/*   Updated: 2022/04/08 10:44:47 by cassassi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
@@ -69,14 +80,27 @@ void Bureaucrat::demotion()
         throw lowex;
 }
 
-void Bureaucrat::signAForm(AForm & AForm)
+void Bureaucrat::signAForm(AForm & form)
 {
-    if (AForm.beSigned(*this) == true)
+    if (form.beSigned(*this) == true)
     {
-        std::cout << this->_name << " signed " << AForm.getName() << std::endl;
+        std::cout << this->_name << " signed " << form.getName() << std::endl;
     }
     else
     {
-        std::cout << this->_name << " couldn't signed " << AForm.getName() << " because it was allready signed" << std::endl;
+        std::cout << this->_name << " couldn't signed " << form.getName() << " because it was allready signed" << std::endl;
     }
+}
+
+void Bureaucrat::executeForm(AForm const & form) const
+{
+    try
+    {
+        form.execute(*this);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    
 }

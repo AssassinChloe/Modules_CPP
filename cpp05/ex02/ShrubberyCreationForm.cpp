@@ -73,4 +73,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     ofs << "              uuuu                                tt         " << std::endl;
     ofs << "              uuuu                                tt         " << std::endl;
     ofs.close();
+    std::cout << executor.getName() << " executed " << this->_name << std::endl;
 }

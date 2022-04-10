@@ -18,7 +18,7 @@
 # include <fstream>
 # include "Bureaucrat.hpp"
 
-class Bureaucrat ;
+class Bureaucrat;
 
 class AForm
 {
@@ -45,25 +45,15 @@ class AForm
         const int   _signature_grade;
         const int   _execution_grade;
         std::string _target;
-
-        class GradeTooHighException : public std::exception
-        {
-            public :
-                virtual const char *what() const throw()
-                {
-                    return ("Your grade is too hight");
-                }
-        } hightex;
-
-        class GradeTooLowException : public std::exception
-        {
-            public :
-                virtual const char *what() const throw()
-                {
-                    return ("Your grade is too low");
-                }
-        } lowex;
         
+        class ErrorOpenException : public std::exception
+        {
+            public :
+                virtual const char *what() const throw()
+                {
+                    return ("Error open");
+                }
+        } openex;
 };
 
 std::ostream & operator<<(std::ostream & ostream, AForm const & instance);

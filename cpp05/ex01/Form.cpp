@@ -18,9 +18,13 @@ Form::Form() : _name("blank paper"), _signed(false), _signature_grade(1), _execu
     std::cout << "Default Form constructor called" << std::endl;
 }
 
-Form::Form(std::string name, int sig_grade, int exec_grade) : 
-_name(name), _signed(false), _signature_grade(sig_grade), _execution_grade(exec_grade) 
+Form::Form(std::string name, int sig_grade, int exec_grade) :
+ _name(name), _signed(false), _signature_grade(sig_grade), _execution_grade(exec_grade)
 {
+    if (sig_grade < 1 || exec_grade < 1)
+        throw hightex;
+    else if (sig_grade > 150 || exec_grade > 150)
+        throw lowex;
     std::cout << "Form constructor called" << std::endl;
 }
 
@@ -52,13 +56,13 @@ std::ostream & operator<<(std::ostream & ostream, Form const & instance)
 {
     if (instance.getSigned() == true)
     {
-        ostream << "Form : " << instance.getName() << std::endl << "Requierment for signature : grade " 
+        ostream << "Form : " << instance.getName() << std::endl << "Grade required for signature : " 
         << instance.getSignatureGrade() << ", for execution : " << instance.getExecutionGrade() << std::endl
         << "The form is signed";
     }
     else
     {
-        ostream << "Form : " << instance.getName() << std::endl << "Requierment for signature : grade " 
+        ostream << "Form : " << instance.getName() << std::endl << "Grade required for signature : " 
         << instance.getSignatureGrade() << ", for execution : " << instance.getExecutionGrade() << std::endl
         << "The form is unsigned";
     }

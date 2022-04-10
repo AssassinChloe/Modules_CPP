@@ -10,7 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main ()
 {
@@ -28,9 +31,10 @@ int main ()
     
     std::cout << std::endl;
 
-    std::cout << form << std::endl << std::endl;
-    std::cout << request << std::endl << std::endl;
-    std::cout << pardon << std::endl << std::endl;
+    std::cout << form << std::endl;
+    std::cout << request << std::endl;
+    std::cout << pardon << std::endl;
+    std::cout << std::endl;
     
     employee.signAForm(form);
     employee.signAForm(request);
@@ -44,9 +48,10 @@ int main ()
 
     std::cout << std::endl;
 
-    std::cout << form << std::endl << std::endl;
-    std::cout << request << std::endl << std::endl;
-    std::cout << pardon << std::endl << std::endl;
+    std::cout << form << std::endl;
+    std::cout << request << std::endl;
+    std::cout << pardon << std::endl;
+    std::cout << std::endl;
 
     chef.signAForm(form);
     chef.signAForm(request);

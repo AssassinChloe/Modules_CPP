@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# define ERROR "\033[1;31m ERROR : \033[0m"
+# define ERROR "\033[1;31mERROR : \033[0m"
 
 class Bureaucrat
 {
@@ -24,7 +24,7 @@ class Bureaucrat
         public :
             virtual const char *what() const throw()
             {
-                return ("The Grade you try is too hight");
+                return ("Grade too hight");
             }
     } hightex;
 
@@ -33,7 +33,7 @@ class Bureaucrat
         public :
             virtual const char *what() const throw()
             {
-                return ("The Grade you try is too low");
+                return ("Grade too low");
             }
     } lowex;
 

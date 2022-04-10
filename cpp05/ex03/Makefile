@@ -6,11 +6,11 @@
 #    By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 13:55:30 by cassassi          #+#    #+#              #
-#    Updated: 2022/04/07 17:34:23 by cassassi         ###   ########.fr        #
+#    Updated: 2022/04/10 23:57:22 by cassassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	intership
+NAME	=	internship
 
 SRC		=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
 			RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp

@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include "Form.hpp"
+# define ERROR "\033[1;31m ERROR : \033[0m"
 
 class Form;
 

@@ -82,13 +82,16 @@ void Bureaucrat::demotion()
 
 void Bureaucrat::signAForm(AForm & form)
 {
-    if (form.beSigned(*this) == true)
+    try
     {
-        std::cout << this->_name << " signed " << form.getName() << std::endl;
+        if (form.beSigned(*this) == true)
+            std::cout << this->_name << " signed " << form.getName() << std::endl;
+        else
+            std::cout << this->_name << " couldn't signed " << form.getName() << " because it was allready signed" << std::endl;
     }
-    else
+    catch(const std::exception& e)
     {
-        std::cout << this->_name << " couldn't signed " << form.getName() << " because it was allready signed" << std::endl;
+        std::cerr << ERROR << e.what() << std::endl;
     }
 }
 
@@ -102,7 +105,7 @@ void Bureaucrat::isExecutableForm(AForm const & form) const
 
 void Bureaucrat::executeForm(AForm const & form) const
 {
-    try
+      try
     {
         this->isExecutableForm(form);
         form.execute(*this);
@@ -112,5 +115,5 @@ void Bureaucrat::executeForm(AForm const & form) const
         std::cout << this->_name << " cannot executed " << form.getName() << " :" << std::endl;
         std::cerr << ERROR << e.what() << std::endl;
         return ;
-    }    
+    }  
 }

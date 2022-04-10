@@ -82,12 +82,15 @@ void Bureaucrat::demotion()
 
 void Bureaucrat::signForm(Form & form)
 {
-    if (form.beSigned(*this) == true)
+    try
     {
-        std::cout << this->_name << " signed " << form.getName() << std::endl;
+        if (form.beSigned(*this) == true)
+            std::cout << this->_name << " signed " << form.getName() << std::endl;
+        else
+            std::cout << this->_name << " couldn't signed " << form.getName() << " because it was allready signed" << std::endl;
     }
-    else
+    catch(const std::exception& e)
     {
-        std::cout << this->_name << " couldn't signed " << form.getName() << " because it was allready signed" << std::endl;
+        std::cerr << ERROR << e.what() << std::endl;
     }
 }

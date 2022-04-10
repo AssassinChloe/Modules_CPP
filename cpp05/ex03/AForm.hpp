@@ -18,7 +18,7 @@
 # include <fstream>
 # include "Bureaucrat.hpp"
 
-class Bureaucrat ;
+class Bureaucrat;
 
 class AForm
 {

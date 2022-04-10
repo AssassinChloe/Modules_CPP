@@ -14,6 +14,7 @@
 # define RobotomyRequestForm_HPP
 # include "Bureaucrat.hpp"
 # include <time.h>
+# include <cstdlib>
 
 class RobotomyRequestForm : public AForm
 {

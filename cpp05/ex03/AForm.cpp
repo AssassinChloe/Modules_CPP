@@ -13,7 +13,7 @@
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("blank paper"), _signed(false), _signature_grade(1), _execution_grade(1), _target("unknown")
+AForm::AForm() : _name("blank paper"), _signed(false), _signature_grade(150), _execution_grade(150), _target("unknown")
 {
     std::cout << "Default AForm constructor called" << std::endl;
 }

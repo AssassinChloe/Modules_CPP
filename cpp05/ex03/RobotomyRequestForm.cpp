@@ -46,4 +46,5 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
         std::cout << this->_target << " has been robotomized successfully" << std::endl;
     else
         std::cout << "Robotomization of " << this->_target << " failure" << std::endl;
+    std::cout << executor.getName() << " executed " << this->_name << std::endl;
 }

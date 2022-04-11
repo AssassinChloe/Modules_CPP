@@ -1,4 +1,3 @@
-
 #include "{{CLASS}}.hpp"
 
 int main ()

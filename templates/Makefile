@@ -1,4 +1,3 @@
-
 NAME	=	
 
 SRC		=	main.cpp {{CLASS}}.cpp

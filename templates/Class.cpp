@@ -1,4 +1,3 @@
-
 #include "{{CLASS}}.hpp"
 
 {{CLASS}}::{{CLASS}}()

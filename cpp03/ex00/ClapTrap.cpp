@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:11 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:19 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/11 14:10:01 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int         ClapTrap::getdamage() const
 
 void ClapTrap::attack(const std::string& target)
 {
+    if (check_vitals() == false)
+        return ;
     std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing ";
     std::cout << this->_damage << " points of damage !" << std::endl;
     this->_energy--;
@@ -89,6 +91,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+    if (check_vitals() == false)
+        return ;
     std::cout << "*Buzzing and drilling noises* ClapTrap " << this->_name << " regains ";
     std::cout << amount << " health points !" << std::endl;
     this->_energy--;
@@ -96,4 +100,20 @@ void ClapTrap::beRepaired(unsigned int amount)
     if (this->_hit_points > 10)
         this->_hit_points = 10;
 }
+
+bool    ClapTrap::check_vitals() const
+{
+    if (this->_hit_points == 0)
+    {
+        std::cout << this->_name << " is too broken..." << std::endl;
+        return (false);
+    }
+    else if (this->_energy == 0)
+    {
+        std::cout << this->_name << " battery too low..." << std::endl;
+        return (false);
+    }
+    return (true);
+}
+
 

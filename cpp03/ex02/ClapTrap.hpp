@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:32 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/11 14:10:52 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ class ClapTrap
         void        attack(const std::string& target);
         void        takeDamage(unsigned int amount);
         void        beRepaired(unsigned int amount);
+        bool        check_vitals() const;
+        
 
     protected:
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:32 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/11 13:43:03 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include "ClapTrap.hpp"
-//# include "DiamondTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap
 {

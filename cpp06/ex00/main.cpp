@@ -5,34 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 10:49:17 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/11 14:12:20 by cassassi         ###   ########.fr       */
+/*   Created: 2022/04/11 12:08:15 by cassassi          #+#    #+#             */
+/*   Updated: 2022/04/11 17:16:42 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "convert.h"
 
-int main()
+int main (int ac, char**av)
 {
-    ClapTrap robot1("Oscar");
-    ClapTrap robot2("A1-2C4");
-    
-    std::cout << std::endl;
-    
-    while (robot1.getenergy() > 0 && robot2.getenergy() > 0)
+    if (ac != 2)
     {
-        robot1.attack(robot2.getname());
-        robot2.takeDamage(robot1.getdamage());
-        robot2.beRepaired(5);
-        robot2.attack(robot1.getname());
-        robot1.takeDamage(robot2.getdamage());
-
-        std::cout << std::endl << robot1 << std::endl;
-        std::cout << std::endl << robot2 << std::endl << std::endl;
+        std::cout << "Wrong number of arguments" << std::endl 
+        << "Usage : ./convert 'value'" << std::endl;
     }
+    Convert value(av[1]);
     
-    robot1.beRepaired(5);
-    robot2.beRepaired(5);
+    int     nb = static_cast<int>(value);
+    float   fnb = static_cast<float>(value);
+    double  dnb = static_cast<double>(value);
+    char    c = static_cast<char>(value);
+    
+    std::cout << nb << std::endl << fnb << std::endl << dnb << std::endl << c << std::endl;
 
     return (0);
 }

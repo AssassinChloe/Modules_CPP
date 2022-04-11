@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:11 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:19 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/11 13:57:49 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,7 @@ std::string DiamondTrap::getname() const
 
 void DiamondTrap::attack(const std::string& target)
 {
-    // ScavTrap::_name = this->_name;
     ScavTrap::attack(target);
-    // ClapTrap::_name = this->_name + "_clap_name";
-
 }
 
 void DiamondTrap::whoAmI()

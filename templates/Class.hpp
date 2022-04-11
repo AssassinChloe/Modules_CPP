@@ -1,4 +1,3 @@
-
 #ifndef {{MACRO}}_H
 #define {{MACRO}}_H
 

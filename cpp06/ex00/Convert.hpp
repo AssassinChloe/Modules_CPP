@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/11 17:27:45 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:42:23 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 # define DOUBLE 2
 # define FLOAT 3
 # define INVALID 4
-# define SPE_CASE 5
+# define SPE_CASE_F 5
+# define SPE_CASE_D 6
 
 # include <iostream>
 # include <cctype>
 # include <string>
 # include <cstdlib>
+# include <iomanip>
 
 class Convert
 {
@@ -34,11 +36,18 @@ class Convert
 
         Convert& operator=(Convert const & var);
         std::string getToConvert() const;
-        void checkToConvert();
+        void    conversion();
     
     private:
+        void setType();
+        void convert_char();
+        void convert_int();
+        void convert_double();
+        void convert_float();
+        void convert_spe();
         Convert();
         std::string _toconvert;
+        int         _type;
         
 };
 

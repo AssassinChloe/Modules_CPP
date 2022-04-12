@@ -6,13 +6,13 @@
 #    By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/11 12:07:21 by cassassi          #+#    #+#              #
-#    Updated: 2022/04/11 12:08:51 by cassassi         ###   ########.fr        #
+#    Updated: 2022/04/12 14:44:24 by cassassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	convert	
 
-SRC		=	main.cpp
+SRC		=	main.cpp Convert.cpp
 
 OBJSD   =	.obj/
 

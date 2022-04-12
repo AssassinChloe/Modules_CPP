@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 12:08:15 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/11 17:16:42 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:30:59 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ int main (int ac, char**av)
         << "Usage : ./convert 'value'" << std::endl;
     }
     Convert value(av[1]);
-    value.checkToConvert();
- /*   int     nb = static_cast<int>(value);
+    value.conversion();
+  /*   value.checkToConvert();
+   int     nb = static_cast<int>(value);
     float   fnb = static_cast<float>(value);
     double  dnb = static_cast<double>(value);
     char    c = static_cast<char>(value);

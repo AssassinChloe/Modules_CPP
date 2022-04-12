@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "convert.h"
+#include "Convert.hpp"
 
 int main (int ac, char**av)
 {
@@ -20,13 +20,13 @@ int main (int ac, char**av)
         << "Usage : ./convert 'value'" << std::endl;
     }
     Convert value(av[1]);
-    
-    int     nb = static_cast<int>(value);
+    value.checkToConvert();
+ /*   int     nb = static_cast<int>(value);
     float   fnb = static_cast<float>(value);
     double  dnb = static_cast<double>(value);
     char    c = static_cast<char>(value);
     
     std::cout << nb << std::endl << fnb << std::endl << dnb << std::endl << c << std::endl;
-
+*/
     return (0);
 }

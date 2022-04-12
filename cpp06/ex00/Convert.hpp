@@ -13,7 +13,18 @@
 #ifndef CONVERT_H
 #define CONVERT_H
 
+# define CHAR 0
+# define INT 1
+# define DOUBLE 2
+# define FLOAT 3
+# define INVALID 4
+# define SPE_CASE 5
+
 # include <iostream>
+# include <cctype>
+# include <string>
+# include <cstdlib>
+
 class Convert
 {
     public:
@@ -23,10 +34,10 @@ class Convert
 
         Convert& operator=(Convert const & var);
         std::string getToConvert() const;
+        void checkToConvert();
     
     private:
         Convert();
-        int checkToConvert();
         std::string _toconvert;
         
 };

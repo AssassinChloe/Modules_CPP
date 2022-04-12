@@ -41,7 +41,31 @@ std::string Convert::getToConvert() const
     return (this->_toconvert);
 }
 
-int Convert::checkToConvert()
+void Convert::checkToConvert()
 {
-    
+    int type;
+    double res;
+    char *pEnd;
+    std::string spe_case[] = {"nanf", "-inff", "+inff", "nan", "-inf", "+inf"};
+
+    if (this->_toconvert.size() == 1 && isalpha(this->_toconvert[0]))
+    {    
+        type = CHAR;
+        return;
+    }
+    for (int i = 0; i < 6; i++)
+    {
+        if (spe_case[i] == this->_toconvert)
+        {
+            type = SPE_CASE;
+            return;
+        }
+    }
+    res = strtod(this->_toconvert.c_str(), &pEnd);
+
+    std::cout << static_cast<char>(res) << std::endl;
+    std::cout << static_cast<int>(res) << std::endl;
+    std::cout << static_cast<float>(res) << std::endl;
+    std::cout << res << std::endl;
+
 }

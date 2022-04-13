@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/12 16:42:23 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:34:59 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ class Convert
         Convert();
         std::string _toconvert;
         int         _type;
+        int         _precision;
         
 };
 

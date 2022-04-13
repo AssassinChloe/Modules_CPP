@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:18:21 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/12 17:33:46 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/13 18:02:16 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 Convert::Convert()
 {}
 
-Convert::Convert(std::string value) : _toconvert(value)
+Convert::Convert(std::string value) : _toconvert(value), _precision(value.size() + 1)
 {
     this->setType();
-    std::cout << this->_type << std::endl;
 }
 
 Convert::Convert(Convert const & src)
@@ -46,15 +45,15 @@ std::string Convert::getToConvert() const
 
 void Convert::setType()
 {
-    std::string spe_casef[] = {"nanf", "-inff", "+inff"};
-    std::string spe_cased[] = {"nan", "-inf", "+inf"};
+    std::string spe_casef[] = {"nanf", "-inff", "+inff", "inff"};
+    std::string spe_cased[] = {"nan", "-inf", "+inf", "inf"};
     unsigned int i;
     int nb_point = 0;
     int nb_f = 0;
     int nb_signed = 0;
     int nb_char = 0;
     
-    for (i = 0; i < 6; i++)
+    for (i = 0; i < 4; i++)
     {
         if (spe_casef[i] == this->_toconvert)
         {
@@ -67,7 +66,7 @@ void Convert::setType()
             return;
         }
     }
-    if (this->_toconvert.size() == 1 && isalpha(this->_toconvert[0]))
+    if (this->_toconvert.size() == 1 && isdigit(this->_toconvert[0]) == 0)
     {    
         this->_type = CHAR;
         return;
@@ -103,6 +102,7 @@ void    Convert::conversion()
         case INVALID :
         {
             std::cout << "Wrong value, please try again" << std::endl;
+            return ;
         }
         case CHAR :
         {
@@ -139,53 +139,55 @@ void    Convert::conversion()
 void Convert::convert_char()
 {
     char conv = this->_toconvert[0];
-    std::cout << std::setw(8) << "Char :" <<  conv << std::endl;
-    std::cout << std::setw(8) << "Int :" << static_cast<int>(conv) << std::endl;
-    std::cout << std::setw(8) << "Double:" << static_cast<double>(conv) << std::endl;
-    std::cout << std::setw(8) << "Float :" << static_cast<float>(conv) << std::endl;
+    std::cout << std::setw(8) << "Char : " <<  conv << std::endl;
+    std::cout << std::setw(8) << "Int: " << static_cast<int>(conv) << std::endl;
+    std::cout << std::setw(8) << "Double: " << std::setprecision(this->_precision) << static_cast<double>(conv) << std::endl;
+    std::cout << std::setw(8) << "Float : " << std::setprecision(this->_precision) << static_cast<float>(conv) << 'f' << std::endl;
     
 }
 void Convert::convert_int()
 {
     int conv = atoi(this->_toconvert.c_str());
     if ( conv < 0 || conv >= 128)
-        std::cout << "Impossible" << std::endl;
+        std::cout << std::setw(8) << "Char : " <<  "Impossible" << std::endl;
     else if (isprint(conv) == 0)
-        std::cout << "Non displayable" << std::endl;
+        std::cout << std::setw(8) << "Char : " <<  "Non displayable" << std::endl;
     else
-        std::cout << std::setw(8) << "Char :" <<  static_cast <char>(conv) << std::endl;
-    std::cout << std::setw(8) << "Int :" << conv << std::endl;
-    std::cout << std::setw(8) << "Double:" << static_cast<double>(conv) << std::endl;
-    std::cout << std::setw(8) << "Float :" << static_cast<float>(conv) << std::endl;
+        std::cout << std::setw(8) << "Char : " <<  static_cast <char>(conv) << std::endl;
+    std::cout << std::setw(8) << "Int : " << conv << std::endl;
+    std::cout << std::setw(8) << "Double: " << std::showpoint << std::setprecision(this->_precision) << static_cast<double>(conv) << std::endl;
+    std::cout << std::setw(8) << "Float : " << std::setprecision(this->_precision) << static_cast<float>(conv) << 'f' << std::endl;
     
 }
 void Convert::convert_double()
 {
-
+    
     char *end;
     double conv = strtod(this->_toconvert.c_str(), &end);
+    this->_precision = this->_toconvert.size() - this->_toconvert.find('.', 0) + 1;
     if ( conv < 0 || conv >= 128)
-        std::cout << "Impossible" << std::endl;
+        std::cout << std::setw(8) << "Char : " <<  "Impossible" << std::endl;
     else if (isprint(conv) == 0)
-        std::cout << "Non displayable" << std::endl;
+        std::cout << std::setw(8) << "Char : " <<  "Non displayable" << std::endl;
     else
         std::cout << std::setw(8) << "Char : " <<  static_cast <char>(conv) << std::endl;
     std::cout << std::setw(8) << "Int : " << static_cast<int>(conv) << std::endl;
-    std::cout << std::setw(8) << "Double: " << conv << std::endl;
-    std::cout << std::setw(8) << "Float : " << static_cast<float>(conv) << std::endl;
+    std::cout << std::setw(8) << "Double: " << std::showpoint << std::setprecision(this->_precision)<< conv << std::endl;
+    std::cout << std::setw(8) << "Float : " << std::showpoint << std::setprecision(this->_precision) << static_cast<float>(conv) << 'f' << std::endl;
 }
 void Convert::convert_float()
 {
     float conv = atof(this->_toconvert.c_str());
+    this->_precision = this->_toconvert.size() - this->_toconvert.find('.', 0) ;
     if ( conv < 0 || conv >= 128)
-        std::cout << "Impossible" << std::endl;
+        std::cout << std::setw(8) << "Char : " <<  "Impossible" << std::endl;
     else if (isprint(conv) == 0)
-        std::cout << "Non displayable" << std::endl;
+        std::cout << std::setw(8) << "Char : " <<  "Non displayable" << std::endl;
     else
         std::cout << std::setw(8) << "Char : " <<  static_cast <char>(conv) << std::endl;
     std::cout << std::setw(8) << "Int : " << static_cast<int>(conv) << std::endl;
-    std::cout << std::setw(8) << "Double: " << static_cast<double>(conv) << std::endl;
-    std::cout << std::setw(8) << "Float : " << conv << std::endl;
+    std::cout << std::setw(8) << "Double: " << std::showpoint << std::setprecision(this->_precision) << static_cast<double>(conv) << std::endl;
+    std::cout << std::setw(8) << "Float : " << std::showpoint << std::setprecision(this->_precision )<< conv << 'f' <<std::endl;
 }
 
 void Convert::convert_spe()

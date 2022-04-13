@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:11 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:19 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:10:28 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ Brain::Brain()
 
 Brain::Brain(Brain const & src)
 {
+    std::cout << "Copy constructor called" << std::endl;
     *this = src;
     return ;
 }
 
 Brain& Brain::operator=(Brain const & var)
 {
+    std::cout << "Copy assignment operator called" << std::endl;
     int i;
 
     if (this != &var)

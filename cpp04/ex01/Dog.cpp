@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:18:11 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:18:19 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:10:02 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ Dog::Dog() : _brain(new Brain())
 
 Dog::Dog(Dog const & src)
 {
+    std::cout << "Copy constructor called" << std::endl;
     *this = src;
     return ;
 }
 
 Dog& Dog::operator=(Dog const & var)
 {
+    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &var)
     {
         this->_type = var.getType();

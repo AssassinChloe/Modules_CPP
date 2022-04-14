@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 17:18:50 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/14 17:32:55 by cassassi         ###   ########.fr       */
+/*   Created: 2022/04/14 22:02:38 by cassassi          #+#    #+#             */
+/*   Updated: 2022/04/14 22:02:38 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_HPP
-# define MAIN_HPP
+#ifndef B_HPP
+# define B_HPP
 
-#include <stdint.h>
-#include <iostream>
-#include <string>
+# include "Base.hpp"
 
-typedef struct s_Data
+class B : public Base 
 {
-    int nb;
-    std::string str;
-} Data;
+
+};
 
 #endif

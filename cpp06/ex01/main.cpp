@@ -28,10 +28,23 @@ int main()
     Data *ret;
     uintptr_t ptr;
     
+    raw->nb = 42;
+    raw->str = " - Coucou je suis le test";
+
+    std::cout << &raw << " : Adresse de la structure Data" << std::endl;
+    std::cout << raw << " : Contenu du pointeur de la structure Data" << std::endl;
+    std::cout << "Les valeurs de la structure Data : "<< raw->nb << raw->str << std::endl << std::endl;
+    
     ptr = serialize(raw);
+    
+    std::cout << ptr << " : La valeur de l'uintptr_t après serialize" << std::endl;
+    std::cout << std::hex << "0x" << ptr << " : la même chose convertie en hexadécimal " << std::endl << std::endl;
+    
     ret = deserialize(ptr);
 
-    std::cout << raw << std::endl;
-    std::cout << std::hex << "0x" << ptr << std::endl;
-    std::cout << ret << std::endl;
+    std::cout << &ret << " : l'adresse de la struct data qui reçoit le retour de deserialize" << std::endl;
+    std::cout << ret << " : le contenu de la structure" << std::endl;
+    std::cout << std::dec << "Les valeurs de la structure : " << ret->nb << ret->str << std::endl;
+    
+    delete(ret);
 }

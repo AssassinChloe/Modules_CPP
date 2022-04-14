@@ -169,7 +169,7 @@ void Convert::convert_int()
     else
         std::cout << std::setw(8) << "Char : " <<  static_cast <char>(conv) << std::endl;
     std::cout << std::setw(8) << "Int : " << conv << std::endl;
-    std::cout << std::setw(8) << "Float : " << std::showpoint << std::setprecision(this->_precision) << static_cast<float>(conv) << 'f' << std::endl;
+    std::cout << std::setw(8) << "Float : " << std::showpoint << std::setprecision(this->_precision)<< static_cast<float>(conv) << 'f' << std::endl;
     std::cout << std::setw(8) << "Double: " << std::showpoint << std::setprecision(this->_precision) << static_cast<double>(conv) << std::endl;
     
 }

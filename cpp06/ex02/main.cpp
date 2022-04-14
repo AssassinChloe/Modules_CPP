@@ -1,0 +1,106 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/14 22:08:58 by cassassi          #+#    #+#             */
+/*   Updated: 2022/04/14 22:08:58 by cassassi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+# include <cstdlib>
+# include <iostream>
+
+Base * generate(void)
+{
+    int nb = rand() % 3;
+    if (nb == 0)
+        return (new A);
+    else if (nb == 1)
+        return (new B);
+    else
+        return (new C);
+}
+
+void identify(Base* p)
+{
+    A *base_a = dynamic_cast<A *>(p);
+    if (base_a)
+    {
+        std::cout << "A" << std::endl;
+        return ;
+    }
+    B *base_b = dynamic_cast<B *>(p);
+    if (base_b)
+    {
+        std::cout << "B" << std::endl;
+        return ;
+    }
+    C *base_c = dynamic_cast<C *>(p);
+    if (base_c)
+    {
+        std::cout << "C" << std::endl;
+        return ;
+    }
+
+}
+
+void identify(Base& p)
+{
+    try
+    {
+        A &base_a = dynamic_cast<A&>(p);
+        std::cout << "A" << std::endl;
+        return ;
+    }
+    catch(const std::exception& e)
+    {
+        (void)e;
+    }
+    
+    try
+    {
+        B &base_b = dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        return ;
+    }
+    catch(const std::exception& e)
+    {
+        (void)e;
+    }
+
+    try
+    {
+        C &base_c = dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+        return ;
+    }
+    catch(const std::exception& e)
+    {
+        (void)e;
+    }
+}
+
+int main()
+{
+    Base *base;
+    
+    for (int i = 0; i < 10; i++)
+    {
+        std::cout << "Generate base " << i << std::endl;
+        base = generate();
+        std::cout << "Identification by ptr : ";
+        identify(base);
+        std::cout << "Identification by ref : ";
+        identify(*base);
+        delete(base);
+        std::cout << std::endl;
+    }
+    return (0);
+}

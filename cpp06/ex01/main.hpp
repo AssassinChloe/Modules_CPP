@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 12:08:15 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/14 16:36:34 by cassassi         ###   ########.fr       */
+/*   Created: 2022/04/14 17:18:50 by cassassi          #+#    #+#             */
+/*   Updated: 2022/04/14 17:32:55 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Convert.hpp"
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-int main (int ac, char**av)
+#include <stdint.h>
+#include <iostream>
+
+typedef struct s_Data
 {
-    if (ac != 2)
-    {
-        std::cout << "Wrong number of arguments" << std::endl 
-        << "Usage : ./convert 'value'" << std::endl;
-    }
-    Convert value(av[1]);
-    value.conversion();
-    return (0);
-}
+    int plop;   
+} Data;
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 22:51:30 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/11 01:06:41 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:57:16 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,22 @@ Intern::~Intern()
 
 AForm* Intern::makeForm(std::string name, std::string target)
 {
-    int i = 0;
     std::string _form_known[] = 
-    {   "shrubbery creation", "robotomy request","presidential pardon" };
-    while (i < this->_nb_forms && _form_known[i] != name)
-        i++;
-    switch (i)
+    {   "shrubbery creation", "robotomy request","presidential pardon"};
+    AForm *((Intern::*tab[])(std::string const &)) =
     {
-        case 0:
-            return (this->createShrubberyCreation(target));
-            break;
-        case 1:
-            return (this->createRobotomyRequest(target));
-            break;
-        case 2:
-            return (this->createPresidentialPardon(target));
-            break;
-        default:
-            std::cout << "Unknown form, Intern can't create " << name << " form." << std::endl;
-            return (NULL);
-            break;
+        &Intern::createShrubberyCreation,
+        &Intern::createRobotomyRequest,
+        &Intern::createPresidentialPardon,
+    };
+    for (int i = 0; i < 3; i++)
+    {
+        AForm *(Intern::*display)(std::string const &) = tab[i];
+        if (name == _form_known[i])
+            return ((this->*display)(target));
     }
+    std::cout << "Unknown form, Intern can't create it." << std::endl;
+    return (NULL);
 }
 
 AForm *Intern::createShrubberyCreation(std::string const &target)

@@ -5,21 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 12:08:15 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/14 16:36:34 by cassassi         ###   ########.fr       */
+/*   Created: 2022/04/14 17:15:52 by cassassi          #+#    #+#             */
+/*   Updated: 2022/04/14 17:34:47 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Convert.hpp"
+#include "main.hpp"
 
-int main (int ac, char**av)
+uintptr_t serialize(Data* ptr)
 {
-    if (ac != 2)
-    {
-        std::cout << "Wrong number of arguments" << std::endl 
-        << "Usage : ./convert 'value'" << std::endl;
-    }
-    Convert value(av[1]);
-    value.conversion();
-    return (0);
+    return (reinterpret_cast<uintptr_t>(ptr));
+}
+
+Data* deserialize(uintptr_t raw)
+{
+    return (reinterpret_cast<Data*>(raw));
+}
+
+int main()
+{
+    Data *raw = new Data;
+    Data *ret;
+    uintptr_t ptr;
+    
+    ptr = serialize(raw);
+    ret = deserialize(ptr);
+
+    std::cout << raw << std::endl;
+    std::cout << std::hex << "0x" << ptr << std::endl;
+    std::cout << ret << std::endl;
 }

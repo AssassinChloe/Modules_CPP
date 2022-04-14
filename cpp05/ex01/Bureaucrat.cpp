@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 10:45:19 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/08 10:45:19 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:37:50 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void Bureaucrat::signForm(Form & form)
     }
     catch(const std::exception& e)
     {
+        std::cout << this->_name << " couldn't signed " << form.getName() << " because :" << std::endl;
         std::cerr << ERROR << e.what() << std::endl;
     }
 }

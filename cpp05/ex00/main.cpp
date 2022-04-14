@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 10:46:06 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/08 10:46:06 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:24:30 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,15 @@ int main ()
     std::cout << std::endl << "TEST to demote Bob and promote Bobby again : catch expected" << std::endl;
     try
     {
-        chef->promotion();
         employee->demotion();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << ERROR << e.what() << std::endl;
+    }
+    try
+    {
+        chef->promotion();
     }
     catch(const std::exception& e)
     {

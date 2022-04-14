@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 10:44:17 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/08 10:44:17 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:39:40 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ int main ()
         std::cout << form << std::endl << std::endl;
         std::cout << request << std::endl << std::endl;
         std::cout << pardon << std::endl << std::endl;
+
+        chef.executeForm(form);
+        chef.executeForm(request);
+        chef.executeForm(pardon);
+        
+        std::cout << std::endl;
 
         chef.signAForm(form);
         chef.signAForm(request);

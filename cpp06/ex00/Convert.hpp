@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:18:29 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/13 17:34:59 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:53:29 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define SPE_CASE_F 5
 # define SPE_CASE_D 6
 
+# include <limits>
 # include <iostream>
 # include <cctype>
 # include <string>
@@ -36,6 +37,9 @@ class Convert
 
         Convert& operator=(Convert const & var);
         std::string getToConvert() const;
+        int getType() const;
+        int getPrecision() const;
+        bool getMinus() const;
         void    conversion();
     
     private:
@@ -48,8 +52,7 @@ class Convert
         Convert();
         std::string _toconvert;
         int         _type;
-        int         _precision;
-        
+        int         _precision;     
 };
 
 #endif

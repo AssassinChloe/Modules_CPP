@@ -6,14 +6,14 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 16:05:03 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/06 17:30:59 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:26:48 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Form.hpp"
 
-Form::Form() : _name("blank paper"), _signed(false), _signature_grade(1), _execution_grade(1)
+Form::Form() : _name("blank paper"), _signed(false), _signature_grade(150), _execution_grade(150)
 {
     std::cout << "Default Form constructor called" << std::endl;
 }

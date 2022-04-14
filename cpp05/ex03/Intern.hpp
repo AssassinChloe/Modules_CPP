@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 22:51:22 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/11 00:51:20 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:57:53 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Intern
         AForm *createShrubberyCreation(std::string const &target);
         AForm *createRobotomyRequest(std::string const &target);          
         AForm *createPresidentialPardon(std::string const &target);
+        AForm *unkwownform(std::string const &target);
         static const int _nb_forms = 3;
 };
 

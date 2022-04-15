@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cassassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 00:02:56 by cassassi          #+#    #+#             */
-/*   Updated: 2022/03/28 00:02:59 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/15 18:06:07 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	PhoneBook::print_contact(Contact contact) const
 
 	i = 0;
 	std::getline(std::cin, buff);
-		while (i < 5)
+	while (i < 5)
 	{
 		std::cout << tab[i];
 		std::getline(std::cin, buff);

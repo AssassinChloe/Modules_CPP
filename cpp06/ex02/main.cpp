@@ -6,16 +6,11 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 22:08:58 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/14 22:08:58 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:58:50 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
-# include <cstdlib>
-# include <iostream>
+#include "main.h"
 
 Base * generate(void)
 {
@@ -48,7 +43,6 @@ void identify(Base* p)
         std::cout << "C" << std::endl;
         return ;
     }
-
 }
 
 void identify(Base& p)
@@ -57,6 +51,7 @@ void identify(Base& p)
     {
         A &base_a = dynamic_cast<A&>(p);
         std::cout << "A" << std::endl;
+        (void)base_a;
         return ;
     }
     catch(const std::exception& e)
@@ -68,6 +63,7 @@ void identify(Base& p)
     {
         B &base_b = dynamic_cast<B&>(p);
         std::cout << "B" << std::endl;
+        (void)base_b;
         return ;
     }
     catch(const std::exception& e)
@@ -78,6 +74,7 @@ void identify(Base& p)
     try
     {
         C &base_c = dynamic_cast<C&>(p);
+        (void)base_c;
         std::cout << "C" << std::endl;
         return ;
     }

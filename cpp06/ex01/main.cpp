@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 17:15:52 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/14 17:34:47 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:48:00 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ int main()
 
     std::cout << &ret << " : l'adresse de la struct data qui reçoit le retour de deserialize" << std::endl;
     std::cout << ret << " : le contenu de la structure" << std::endl;
+    std::cout << std::dec << "Les valeurs de la structure : " << ret->nb << ret->str << std::endl;
+    std::cout << "Modification des valeurs de la structure" << std::endl;
+    ret->nb++;
+    ret->str = " lalalalala plop";
     std::cout << std::dec << "Les valeurs de la structure : " << ret->nb << ret->str << std::endl;
     
     delete(ret);

@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 22:08:58 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/19 11:59:54 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/19 12:13:54 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Base * generate(void)
 {
+    srand(time(NULL));
     int nb = rand() % 3;
     if (nb == 0)
         return (new A);
@@ -88,16 +89,14 @@ int main()
 {
     Base *base;
     
-    for (int i = 0; i < 10; i++)
-    {
-        std::cout << "Generate base " << i << std::endl;
-        base = generate();
-        std::cout << "Identification by ptr : ";
-        identify(base);
-        std::cout << "Identification by ref : ";
-        identify(*base);
-        delete(base);
-        std::cout << std::endl;
-    }
+    std::cout << "Generate base " << std::endl;
+    base = generate();
+    std::cout << "Identification by ptr : ";
+    identify(base);
+    std::cout << "Identification by ref : ";
+    identify(*base);
+    delete(base);
+    std::cout << std::endl;
+
     return (0);
 }

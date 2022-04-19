@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 17:15:52 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/15 10:48:00 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/19 11:47:24 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int main()
     
     ptr = serialize(raw);
     
+    
+    std::cout << &ptr << " : L'adresse de l'uintptr_t" << std::endl;
     std::cout << ptr << " : La valeur de l'uintptr_t après serialize" << std::endl;
     std::cout << std::hex << "0x" << ptr << " : la même chose convertie en hexadécimal " << std::endl << std::endl;
     
@@ -48,7 +50,7 @@ int main()
     std::cout << "Modification des valeurs de la structure" << std::endl;
     ret->nb++;
     ret->str = " lalalalala plop";
-    std::cout << std::dec << "Les valeurs de la structure : " << ret->nb << ret->str << std::endl;
+    std::cout << std::dec << "Les valeurs de la structure : " << ret->nb << ret->str << " elle est donc utilisable :)"<< std::endl;
     
     delete(ret);
 }

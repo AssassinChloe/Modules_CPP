@@ -42,7 +42,7 @@ class Array
             if (this != &var)
             {
                 if (_size > 0)
-                    delete [] _array;
+
                 _size = var.size();
                 _array = new T[_size];
                 for (unsigned int i = 0; i < _size; i++)

@@ -6,7 +6,7 @@
 /*   By: cassassi <cassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:25:08 by cassassi          #+#    #+#             */
-/*   Updated: 2022/04/20 17:10:53 by cassassi         ###   ########.fr       */
+/*   Updated: 2022/04/21 12:11:16 by cassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,16 @@
 
 # include <iostream>
 # include <string>
-# include <vector>
-# include <iterator>
-# include <cstdlib>
-
-class NoMatchException : public std::exception
-    {
-        public :
-            virtual const char *what() const throw()
-            {
-                return ("There is no matching value");
-            }
-    } nomatchex;
+# include <algorithm>
+# include <stdexcept>
         
 template < typename T>
 int easyfind(T tab, int nb)
 {
-    
-    typename T::const_iterator   it;
-    typename T::const_iterator   ite = tab.end();
-
-    for (it = tab.begin(); it!= ite; it++)
-    {
-        if (*it == nb)
-            return (*it);
-    }
-    throw  nomatchex;
+    typename T::const_iterator  ret = find(tab.begin(), tab.end(), nb);
+    if (ret == tab.end())
+        throw  std::invalid_argument("no matching value");
+    return (*ret);
 }
 
 #endif

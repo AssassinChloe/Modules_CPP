@@ -59,10 +59,49 @@ void Span::addNumber(int nb)
 unsigned int Span::shortestSpan() const
 {
     if (_tab.size() <= 1)
-        throw std::length_error("Span size must be >= 2");   
+        throw std::length_error("Span size must be >= 2");
+    unsigned int sspan;
+    std::vector<int>::const_iterator it = _tab.begin();
+    std::vector<int>::const_iterator ite = _tab.end();
+    std::sort(it, ite);
+    std::vector<int>::const_iterator itplus = _tab.begin();
+    itplus++;
+    it = _tab.begin();
+    sspan = *itplus - *it;
+    std::sort(it, ite);
+    for (it = _tab.begin(); it != ite; it++)
+    {
+        if (itplus != ite)
+        {
+            if ((*it - *itplus) < sspan)
+                sspan = (*itplus - *it);
+            itplus++;
+        }
+    }
+    return (sspan);
+    
 }
 unsigned int Span::longestSpan() const
 {
     if (_tab.size() <= 1)
-        throw std::length_error("Span size must be >= 2"); 
+        throw std::length_error("Span size must be >= 2");
+    unsigned int sspan;
+    std::vector<int>::const_iterator it = _tab.begin();
+    std::vector<int>::const_iterator ite = _tab.end();
+    std::sort(it, ite);
+    std::vector<int>::const_iterator itplus = _tab.begin();
+    itplus++;
+    it = _tab.begin();
+    sspan = (*itplus) - (*it);
+    std::sort(it, ite);
+    for (it = _tab.begin(); it != ite; it++)
+    {
+        if (itplus != ite)
+        {
+            if (((*it) - (*itplus)) > sspan)
+                sspan = ((*itplus) - (*it));
+            itplus++;
+        }
+    }
+    return (sspan);
 }

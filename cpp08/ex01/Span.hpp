@@ -5,6 +5,7 @@
 # include <vector>
 # include <stdexcept>
 # include <algorithm>
+# include <iterator>
 
 class Span
 {
@@ -18,8 +19,8 @@ class Span
         unsigned int getSize() const;
         int getNumber(unsigned int index) const;
         void addNumber(int nb);
-        unsigned int shortestSpan() const;
-        unsigned int longestSpan() const;
+        int shortestSpan() const;
+        int longestSpan() const;
     
     private:
         std::vector<int> _tab;

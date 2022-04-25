@@ -19,6 +19,8 @@ class Span
 
         unsigned int getSize() const;
         int getNumber(unsigned int index) const;
+
+        void addNumber(int nb);
         template <class Iterator>
         void addNumber(Iterator beg, Iterator end)
         {
@@ -28,7 +30,6 @@ class Span
                 addNumber(*tmp);
             }
         }
-        void addNumber(int nb);
 
         int shortestSpan() const;
         int longestSpan() const;

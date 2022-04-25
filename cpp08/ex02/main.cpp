@@ -14,6 +14,7 @@ int main()
     mstack.push(5);
     mstack.push(737);
     mstack.push(0);
+    std::cout << "new size " << mstack.size() << std::endl;
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
     ++it;
@@ -61,6 +62,7 @@ int main()
     testlist.push_back(5);
     testlist.push_back(737);
     testlist.push_back(0);
+    std::cout << "new size " << testlist.size() << std::endl;
     std::list<int>::iterator tlit = testlist.begin();
     std::list<int>::iterator tlite = testlist.end();
     ++tlit;

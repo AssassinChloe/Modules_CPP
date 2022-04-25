@@ -3,7 +3,7 @@
 int main ()
 {
 
-    Span sp = Span(10005);
+    Span sp = Span(10006);
     try
     {
         std::cout << "Test empty span" << std::endl;
@@ -16,16 +16,18 @@ int main ()
     }
     try
     {
-        std::cout << "longest span : " << sp.longestSpan() << std::endl << std::endl;
-    }
-    catch (const std::exception& e)
-    {
-        std::cout << "Error : "<< e.what() << std::endl << std::endl;
-    }
-    try
-    {
         std::cout << "Subject's Test" << std::endl;
         sp.addNumber(6);
+        try
+        {
+            std::cout << "Test span with one value" << std::endl;
+            std::cout << "span size : " << sp.getSize() << std::endl;
+            std::cout << "longest span : " << sp.longestSpan() << std::endl << std::endl;
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Error : "<< e.what() << std::endl << std::endl;
+        }
         sp.addNumber(3);
         sp.addNumber(17);
         sp.addNumber(9);
@@ -34,7 +36,7 @@ int main ()
         std::cout << "shortest span : " << sp.shortestSpan() << std::endl;
         std::cout << "longest span : " << sp.longestSpan() << std::endl << std::endl;
         
-        std::cout << "Adding Multiple number using Iterator range" << std::endl;
+        std::cout << "Adding Multiple number (10 000) using Iterator range" << std::endl;
         std::vector<int> vec(10000, 42);
         sp.addNumber(vec.begin(), vec.end());
         std::cout << "span size : " << sp.getSize() << std::endl;

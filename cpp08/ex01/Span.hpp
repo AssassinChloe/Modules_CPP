@@ -6,6 +6,7 @@
 # include <stdexcept>
 # include <algorithm>
 # include <iterator>
+# include <cmath>
 
 class Span
 {
@@ -18,7 +19,17 @@ class Span
 
         unsigned int getSize() const;
         int getNumber(unsigned int index) const;
+        template <class Iterator>
+        void addNumber(Iterator beg, Iterator end)
+        {
+            Iterator tmp;
+            for (tmp = beg; tmp != end; tmp++)
+            {
+                addNumber(*tmp);
+            }
+        }
         void addNumber(int nb);
+
         int shortestSpan() const;
         int longestSpan() const;
     

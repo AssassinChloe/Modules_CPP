@@ -61,23 +61,20 @@ int Span::shortestSpan() const
     if (_tab.size() <= 1)
         throw std::length_error("Span size must be >= 2");
     std::vector<int> tmp = _tab;
-    int sspan = 0;
     std::vector<int>::iterator it = tmp.begin();
     std::vector<int>::iterator ite = tmp.end();
-    std::sort(it, ite);
     std::vector<int>::iterator itplus = tmp.begin();
     itplus++;
-    it = tmp.begin();
-    sspan = *itplus - *it;
-    std::sort(it, ite);
+    int sspan = std::abs((*it) - (*itplus));
     for (it = tmp.begin(); it != ite; it++)
     {
-        if (itplus != ite)
+        for (itplus++; itplus != ite; itplus++)
         {
-            if (((*itplus) - (*it)) < sspan)
-                sspan = ((*itplus) - (*it));
-            itplus++;
+            if (std::abs((*it) - (*itplus)) < sspan)
+                sspan = std::abs((*it) - (*itplus));
         }
+        itplus = it;
+        itplus++;
     }
     return (sspan);
     
@@ -87,23 +84,19 @@ int Span::longestSpan() const
     if (_tab.size() <= 1)
         throw std::length_error("Span size must be >= 2");
     std::vector<int> tmp = _tab;
-    int sspan = 0;
     std::vector<int>::iterator it = tmp.begin();
     std::vector<int>::iterator ite = tmp.end();
-    std::sort(it, ite);
     std::vector<int>::iterator itplus = tmp.begin();
     itplus++;
-    it = tmp.begin();
-    sspan = *itplus - *it;
-    std::sort(it, ite);
+    int lspan = std::abs((*it) - (*itplus)); 
     for (it = tmp.begin(); it != ite; it++)
     {
-        if (itplus != ite)
+        for (itplus++; itplus != ite; itplus++)
         {
-            if (((*itplus) - (*it)) > sspan)
-                sspan = ((*itplus) - (*it));
-            itplus++;
+            if (std::abs((*it) - (*itplus)) > lspan)
+                lspan = std::abs((*it) - (*itplus));
         }
+        itplus = it;
     }
-    return (sspan);
+    return (lspan);
 }
